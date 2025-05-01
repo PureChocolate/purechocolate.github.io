@@ -6,90 +6,147 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Smooth scrolling for internal links if added */
+    scroll-behavior: smooth; /* Smooth scrolling for internal links */
+    scroll-padding-top: 80px; /* Offset for sticky nav, adjust as needed */
 }
 
 body {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f8f9fa; /* Light grey background */
+    background-color: #ffffff; /* Default background */
     color: #343a40; /* Dark grey text */
-    padding: 20px 0; /* Add some padding top/bottom */
 }
 
-/* Container for centering content */
-.container {
-    max-width: 900px; /* Max width of the content */
-    margin: 20px auto; /* Center the container */
-    background-color: #ffffff; /* White background for content */
-    padding: 30px 40px; /* Padding inside the container */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
+/* Navigation Bar (Remains the same) */
+#navbar {
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
 }
 
-/* Header Styles */
-.header {
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #343a40;
+    font-weight: 400;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* REMOVED old .container styles */
+/*
+.container { ... }
+*/
+
+/* Section Content Wrapper (The new centering element) */
+.section-content {
+    max-width: 900px; /* Max width of the content area */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;  /* Add horizontal padding for smaller screens */
+    padding-right: 20px; /* where max-width isn't reached */
+}
+
+/* Header Section Styling */
+.header-section {
+    padding: 40px 0 30px 0; /* Vertical padding */
+    background-color: #f8f9fa; /* Example: Light background for header */
+    border-bottom: 1px solid #e9ecef;
+}
+
+.header-content { /* Specific styles for header content if needed */
     text-align: center;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #e9ecef; /* Light separator line */
-    padding-bottom: 20px;
 }
 
-.header h1 {
+.header-content h1 {
     margin-bottom: 8px;
-    color: #212529; /* Slightly darker for the name */
+    color: #212529;
     font-weight: 700;
-    font-size: 2.5em; /* Larger name */
+    font-size: 2.5em;
 }
 
 .contact-info {
     font-size: 0.95em;
-    color: #6c757d; /* Muted color for contact info */
+    color: #6c757d;
 }
 
 .contact-info a {
-    color: #007bff; /* Standard link blue */
+    color: #007bff;
     text-decoration: none;
     margin: 0 5px;
     transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    color: #0056b3; /* Darker blue on hover */
+    color: #0056b3;
     text-decoration: underline;
 }
 
-/* Section Styling */
+
+/* General Section Styling */
 section {
-    margin-bottom: 40px; /* Space between sections */
+    padding: 60px 0; /* Vertical padding for sections */
+    /* border-bottom: 1px solid #eee; Optional separator */
 }
+
+/* Optional: Alternate background colors for sections */
+section:nth-of-type(even) {
+    background-color: #f8f9fa; /* Light grey for even sections */
+}
+section:nth-of-type(odd) {
+    background-color: #ffffff; /* White for odd sections (if body isn't white) */
+}
+
+/* Ensure header background aligns if you alternate */
+/* Example: If header is light grey, first section (#about) should be white */
+#about {
+    background-color: #ffffff;
+}
+
 
 section h2 {
     font-size: 1.6em;
     font-weight: 700;
     color: #343a40;
-    margin-bottom: 20px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #007bff; /* Accent color border */
-    display: inline-block; /* Keep border only under text */
+    margin-bottom: 25px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
 }
 
-/* List Styling (for About, Education, Experience) */
+/* List Styling (remains largely the same, applies within .section-content) */
 section ul {
-    list-style-position: outside; /* Bullets outside the text flow */
-    padding-left: 20px; /* Indent list items */
+    list-style-position: outside;
+    padding-left: 20px;
 }
 
 section ul li {
-    margin-bottom: 10px; /* Space between list items */
-    color: #495057; /* Slightly lighter text for details */
+    margin-bottom: 10px;
+    color: #495057;
 }
 
-/* Specific Section Adjustments */
+/* Specific Section Adjustments (remain largely the same) */
 #education .education-item,
-#experience .job,
-#projects .project {
-    margin-bottom: 25px; /* Space between items within a section */
+#experience .job {
+    margin-bottom: 25px;
 }
 
 #education h3,
@@ -97,7 +154,7 @@ section ul li {
 #projects h3 {
     font-size: 1.2em;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     color: #212529;
 }
 
@@ -109,36 +166,52 @@ section ul li {
 }
 
 #education p em,
-#experience p em { /* Italicize dates/titles */
+#experience p em {
     color: #6c757d;
     font-style: italic;
     font-size: 0.9em;
 }
 
-/* Skills List Styling */
-.skills-list {
-    list-style: none; /* Remove bullets */
-    padding-left: 0;
-    display: flex; /* Arrange skills inline */
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 10px; /* Space between skill tags */
-    margin-bottom: 15px;
+.skills-definition-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px 15px;
 }
 
-.skills-list li {
-    background-color: #e9ecef; /* Light background for skill tags */
-    color: #495057;
-    padding: 5px 12px;
-    border-radius: 15px; /* Pill shape */
-    font-size: 0.9em;
-    margin-bottom: 0; /* Reset margin from general list style */
+
+
+/* Project Section Styling (within .section-content) */
+#projects .project-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 35px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dee2e6; /* Slightly darker border */
+}
+#projects .project-item:last-child {
+    border-bottom: none;
 }
 
-#skills p strong {
-    font-weight: 700;
+.project-visual {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
 }
 
-/* Project Links */
+.project-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: block; /* Prevent extra space below image */
+}
+
+.project-details {
+    flex: 2;
+    min-width: 300px;
+}
+
 #projects a {
     color: #007bff;
     text-decoration: none;
@@ -148,56 +221,112 @@ section ul li {
     text-decoration: underline;
 }
 
-/* Footer */
+
+/* Footer Styling */
 footer {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #e9ecef;
-    font-size: 0.85em;
-    color: #6c757d;
+    padding: 30px 0;
+    background-color: #343a40; /* Example: Dark footer */
+    color: #adb5bd; /* Lighter text for dark background */
+    margin-top: 0; /* Remove potential top margin if sections have bottom padding */
 }
 
-/* Basic Responsive Adjustment */
+.footer-content {
+    text-align: center;
+    font-size: 0.85em;
+}
+.footer-content p {
+    margin: 0;
+}
+
+
+/* Back to Top Button (Remains the same) */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    text-decoration: none;
+}
+
+#back-to-top:hover {
+    background-color: #0056b3;
+}
+
+#back-to-top.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px 25px;
-        margin: 10px auto;
+    html {
+        scroll-padding-top: 70px;
     }
+    .section-content {
+        max-width: 95%; /* Allow content to use more width on tablets */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .header-section { padding: 30px 0 20px 0; }
+    .header-content h1 { font-size: 2em; }
 
-    .header h1 {
-        font-size: 2em;
-    }
+    section { padding: 40px 0; }
+    section h2 { font-size: 1.4em; }
 
-    section h2 {
-        font-size: 1.4em;
-    }
+    #navbar { padding: 10px 0; }
+    .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { padding: 6px 10px; font-size: 0.9em; }
 
-    .skills-list {
-        gap: 8px; /* Slightly smaller gap on mobile */
+    #projects .project-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
+    .project-visual { max-width: 80%; min-width: unset; }
+    .project-details { min-width: unset; text-align: center; }
+
+    #skills p strong { min-width: 80px; }
 }
 
 @media (max-width: 480px) {
-     body {
-        padding: 5px 0;
+    html {
+        scroll-padding-top: 60px;
     }
-    .container {
-        padding: 15px 15px;
-        border-radius: 0; /* Full width on very small screens */
-        box-shadow: none;
+    .section-content {
+        max-width: 100%; /* Full width essentially, padding handles spacing */
+        padding-left: 15px; /* Keep some padding */
+        padding-right: 15px;
     }
-    .header h1 {
-        font-size: 1.8em;
-    }
-     .contact-info {
-        font-size: 0.9em;
-        line-height: 1.4; /* Better spacing if it wraps */
-    }
-    .contact-info a {
-        margin: 0 3px;
-    }
-     section h2 {
-        font-size: 1.3em;
-    }
+    .header-section { padding: 20px 0 15px 0; }
+    .header-content h1 { font-size: 1.8em; }
+    .contact-info { font-size: 0.9em; line-height: 1.4; }
+
+    section { padding: 30px 0; }
+    section h2 { font-size: 1.3em; }
+
+    .nav-links { gap: 5px; }
+    .nav-links a { padding: 5px 8px; font-size: 0.85em; }
+
+    #back-to-top { width: 40px; height: 40px; line-height: 40px; font-size: 16px; right: 15px; bottom: 15px; }
+
+    #skills p { display: flex; flex-direction: column; }
+    #skills p strong { min-width: unset; margin-bottom: 3px; }
+
+    .project-visual { max-width: 90%; } /* Adjust image size for small screens */
 }

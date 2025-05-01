@@ -3,34 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Resume</title>
+    <title>Gurkirat - Resume</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Optional: Add Font Awesome for icons if desired -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href= "./images/favicon.png">
+    </head>
 </head>
-<body>
+<body id="top">
 
-    <div class="container">
-        <header class="header">
-            <h1>JOHN DOE</h1>
+    <nav id="navbar">
+        <ul class="nav-links">
+            <li><a href="#about">Summary</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header section - Now full width potentially -->
+    <header class="header-section">
+        <div class="section-content header-content">
+            <h1>Gurkirat Singh</h1>
             <p class="contact-info">
                 Bellingham, Washington, United States |
-                <a href="mailto:your.email@example.com">Email</a> |
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a> |
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:singh@gurkirat.net">Email</a> |
+                <a href="https://github.com/PureChocolate" target="_blank">GitHub</a> |
+                <a href="https://www.linkedin.com/in/gurkirat-singh-a6546a1b9/" target="_blank">LinkedIn</a>
             </p>
-        </header>
+        </div>
+    </header>
 
-        <main>
-            <section id="about">
+    <!-- Main content area -->
+    <main>
+        <section id="about">
+            <div class="section-content">
                 <h2>Summary</h2>
                 <p>Computer Science graduate with a strong foundation in object-oriented programming, algorithms, data structures, and web development. Practical experience in web accessibility earned through a technical internship. Eager to solve problems with a collaborative mindset and strong passion for tech.</p>
-            </section>
+            </div>
+        </section>
 
-            <section id="education">
+        <section id="education">
+             <div class="section-content">
                 <h2>Education</h2>
                 <div class="education-item">
                     <h3>Western Washington University</h3>
@@ -51,9 +69,11 @@
                         <li>Utilized SSH for remote server management and development workflows.</li>
                     </ul>
                  </div>
-            </section>
+             </div>
+        </section>
 
-            <section id="experience">
+        <section id="experience">
+            <div class="section-content">
                 <h2>Work Experience</h2>
                 <div class="job">
                     <h3>Wandke Consulting</h3>
@@ -73,44 +93,111 @@
                         <li>Responded proactively to time-sensitive system alerts, troubleshooting issues to prevent potential losses.</li>
                     </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="skills">
+        <section id="skills">
+            <div class="section-content">
                 <h2>Technical Skills</h2>
-                <p><strong>Languages:</strong> Java, Python, JavaScript, SQL, HTML, CSS</p>
-                <p><strong>Frameworks/Libraries:</strong> React, Beautiful Soup</p>
-                <p><strong>Databases:</strong> MySQL, MongoDB</p>
-                <p><strong>Tools/Concepts:</strong> Git, OOP, Data Structures, Algorithms, SDLC, Unit Testing, Web Accessibility (WCAG), REST APIs</p>
-                <p><strong>OS:</strong> Windows, Linux/Ubuntu</p>
-            </section>
+                <dl class="skills-definition-list">
+                    <dt><strong>Languages:</strong></dt>
+                    <dd>Java, Python, JavaScript, SQL, HTML, CSS</dd>
 
-            <section id="projects">
+                    <dt><strong>Frameworks/Libraries:</strong></dt>
+                    <dd>React, Beautiful Soup</dd>
+
+                    <dt><strong>Databases:</strong></dt>
+                    <dd>MySQL, MongoDB</dd>
+
+                    <dt><strong>Tools/Concepts:</strong></dt>
+                    <dd>Git, OOP, Data Structures, Algorithms, SDLC, Unit Testing, Web Accessibility (WCAG), REST APIs</dd>
+
+                    <dt><strong>OS:</strong></dt>
+                    <dd>Windows, Linux/Ubuntu</dd>
+                </dl>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-content">
                 <h2>GitHub Projects</h2>
-                <p><em>Selected projects demonstrating practical application of skills. More available on <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>.</em></p>
-                <div class="project">
-                    <h3>ReactApp (Dynamic Web Application)</h3>
-                    <p>Developed a multi-page web application using React for the frontend. Features include dynamic data fetching and display via the Yelp REST API, with data persistence handled by a MongoDB backend.</p>
-                </div>
-                <div class="project">
-                    <h3>Advent of Code (2019-23)</h3>
-                    <p>Solved a variety of algorithmic challenges (up to 25 annually) using Python and/or Java. Focused on developing efficient solutions, data structure selection, and problem decomposition under time constraints.</p>
-                </div>
-                 <div class="project">
-                    <h3>Monopoly (Text-Based Game)</h3>
-                    <p>Implemented a text-based version of Monopoly in Python, applying Object-Oriented Programming (OOP) principles to model game entities (players, properties, board) and game logic.</p>
-                </div>
-                 <div class="project">
-                    <h3>Tic-Tac-Toe (Java GUI)</h3>
-                    <p>Created a graphical Tic-Tac-Toe game using Java Swing during high school. Early exploration of GUI development and event handling.</p>
-                </div>
-            </section>
-        </main>
+                <p><em>Click images to enlarge.</em></p>
 
-        <footer>
+                <div class="project-item">
+                    <div class="project-visual">
+                        <!-- Link to the FULL RESOLUTION image -->
+                        <a href="./images/react.jpg"
+                           data-lightbox="projects"
+                           data-title="ReactApp (Dynamic Web Application)">
+                            <!-- Thumbnail image -->
+                            <img src="./images/react.jpg" alt="React App Demo">
+                        </a>
+                    </div>
+                    <div class="project-details">
+                        <h3>ReactApp (Dynamic Web Application)</h3>
+                        <p>Developed a multi-page web application using React for the frontend. Features include dynamic data fetching and display via the Yelp REST API, with data persistence handled by a MongoDB backend.</p>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                     <div class="project-visual">
+                         <a href="./images/aoc2019.png"
+                            data-lightbox="projects"
+                            data-title="Advent of Code (2019-23)">
+                            <img src="./images/aoc2019.png" alt="Advent of Code Visualization">
+                         </a>
+                    </div>
+                    <div class="project-details">
+                        <h3>Advent of Code (2019-23)</h3>
+                        <p>Solved a variety of algorithmic challenges (up to 25 annually) using Python and/or Java. Focused on developing efficient solutions, data structure selection, and problem decomposition under time constraints.</p>
+                    </div>
+                </div>
+
+                 <!-- <div class="project-item">
+                     <div class="project-visual">
+                         <a href="https://via.placeholder.com/800x600.png?text=Monopoly+Game+Large"
+                            data-lightbox="projects"
+                            data-title="Monopoly (Text-Based Game)">
+                             <img src="https://via.placeholder.com/300x200.png?text=Monopoly+Game" alt="Text-based Monopoly Screenshot">
+                         </a>
+                    </div>
+                    <div class="project-details">
+                        <h3>Monopoly (Text-Based Game)</h3>
+                        <p>Implemented a text-based version of Monopoly in Python, applying Object-Oriented Programming (OOP) principles to model game entities (players, properties, board) and game logic.</p>
+                    </div>
+                 </div> -->
+
+                 <div class="project-item">
+                    <div class="project-visual">
+                        <a href="./images/ttt.png"
+                           data-lightbox="projects"
+                           data-title="Tic-Tac-Toe (Java GUI)">
+                            <img src="./images/ttt.png" alt="Tic-Tac-Toe Java GUI">
+                        </a>
+                    </div>
+                    <div class="project-details">
+                        <h3>Tic-Tac-Toe (Java GUI)</h3>
+                        <p>Created a graphical Tic-Tac-Toe game using Java Swing during high school. Early exploration of GUI development and event handling.</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+    </main>
+
+    <!-- Footer section - Now full width potentially -->
+    <footer>
+        <div class="section-content footer-content">
              <p>© 2024 John Doe</p>
-        </footer>
+        </div>
+    </footer>
 
-    </div>
+    <!-- Back to Top Button -->
+    <a href="#top" id="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 </body>
 </html>
