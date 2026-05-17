@@ -3,196 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gurkirat - Resume</title>
+    <title>Gurkirat Singh — Software Engineer</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href= "./images/favicon.png">
-    </head>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 </head>
 <body id="top">
 
     <nav id="navbar">
-        <ul class="nav-links">
-            <li><a href="#about">Summary</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
+        <div class="nav-inner">
+            <a href="#top" class="nav-brand">GS</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Header section - Now full width potentially -->
-    <header class="header-section">
-        <div class="section-content header-content">
+    <header id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Software Engineer &mdash; Washington, US</p>
             <h1>Gurkirat Singh</h1>
-            <p class="contact-info">
-                Bellingham, Washington, United States |
-                <a href="mailto:singh@gurkirat.net">Email</a> |
-                <a href="https://github.com/PureChocolate" target="_blank">GitHub</a> |
-                <a href="https://www.linkedin.com/in/gurkirat-singh-a6546a1b9/" target="_blank">LinkedIn</a>
-            </p>
+            <p class="hero-tagline">Full-stack developer with a B.S. in Math &amp; CS. I write clean, testable code across the stack — from low-level Win32 telemetry to React/Node web apps. Strong testing mindset, comfortable in Agile teams.</p>
+            <div class="hero-links">
+                <a href="mailto:singh@gurkirat.net" class="hero-link"><i class="fas fa-envelope"></i> singh@gurkirat.net</a>
+                <a href="https://github.com/PureChocolate" target="_blank" class="hero-link"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/gurkirat-singh01" target="_blank" class="hero-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
         </div>
     </header>
 
-    <!-- Main content area -->
     <main>
         <section id="about">
             <div class="section-content">
-                <h2>Summary</h2>
-                <p>Computer Science graduate with a strong foundation in object-oriented programming, algorithms, data structures, and web development. Practical experience in web accessibility earned through a technical internship. Eager to solve problems with a collaborative mindset and strong passion for tech.</p>
-            </div>
-        </section>
-
-        <section id="education">
-             <div class="section-content">
-                <h2>Education</h2>
-                <div class="education-item">
-                    <h3>Western Washington University</h3>
-                    <p><em>Graduated December 2023</em></p>
-                    <p><strong>Bachelor’s in Mathematics/Computer Science</strong></p>
-                    <ul>
-                        <li>Developed proficiency in core Computer Science principles including Data Structures, Algorithms, and Object-Oriented Programming (OOP) using Java.</li>
-                        <li>Analyzed algorithm efficiency, focusing on time complexity and memory optimization trade-offs for various approaches.</li>
-                        <li>Gained practical experience with the Software Development Life Cycle (SDLC), including requirements gathering, system design, implementation, and testing methodologies like Unit Testing.</li>
-                         <li>Studied Database Systems concepts, including relational database design and SQL.</li>
-                    </ul>
-                </div>
-                 <div class="education-item">
-                    <h3>Minor Certificate in Web Programming</h3>
-                     <ul>
-                        <li>Built and deployed dynamic web pages using HTML, CSS, and JavaScript, connecting to SQL databases via server-side scripting.</li>
-                        <li>Implemented web scraping and data parsing techniques using Python libraries (e.g., Beautiful Soup) to process CSV and web data.</li>
-                        <li>Utilized SSH for remote server management and development workflows.</li>
-                    </ul>
-                 </div>
-             </div>
-        </section>
-
-        <section id="experience">
-            <div class="section-content">
-                <h2>Work Experience</h2>
-                <div class="job">
-                    <h3>Wandke Consulting</h3>
-                    <p><em>Technical Intern (Jan 2023 - Mar 2023)</em></p>
-                    <ul>
-                        <li>Audited client websites (ranging from single landing pages to sites with 10-20 subpages) for WCAG 2.0 accessibility compliance using HTML, CSS, and JavaScript debugging skills.</li>
-                        <li>Identified accessibility issues, documented findings clearly, and proposed concrete code-based solutions or implementation strategies.</li>
-                        <li>Collaborated effectively in weekly team meetings, discussing technical findings, solution approaches, and project status updates.</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <h3>Fred Meyer</h3>
-                     <p><em>Retail Clerk (Nov 2019 - Present)</em></p>
-                     <ul>
-                        <li>Consistently met daily work targets in a fast-paced environment, assisting up to 50 customers and ensuring task completion.</li>
-                        <li>Operated inventory management software, ensuring data accuracy and contributing to efficient stock control.</li>
-                        <li>Responded proactively to time-sensitive system alerts, troubleshooting issues to prevent potential losses.</li>
-                    </ul>
-                </div>
+                <h2>About</h2>
+                <p>Associate Software Engineer with a B.S. in Mathematics &amp; Computer Science from Western Washington University. Full-stack project experience building web applications with Java, JavaScript, Node, React, and SQL — backed by a solid foundation in data structures, algorithms, and software design. Collaborative team member with a strong testing mindset; focused on delivering clean, maintainable code in an Agile environment.</p>
             </div>
         </section>
 
         <section id="skills">
             <div class="section-content">
-                <h2>Technical Skills</h2>
-                <dl class="skills-definition-list">
-                    <dt><strong>Languages:</strong></dt>
-                    <dd>Java, Python, JavaScript, SQL, HTML, CSS</dd>
-
-                    <dt><strong>Frameworks/Libraries:</strong></dt>
-                    <dd>React, Beautiful Soup</dd>
-
-                    <dt><strong>Databases:</strong></dt>
-                    <dd>MySQL, MongoDB</dd>
-
-                    <dt><strong>Tools/Concepts:</strong></dt>
-                    <dd>Git, OOP, Data Structures, Algorithms, SDLC, Unit Testing, Web Accessibility (WCAG), REST APIs</dd>
-
-                    <dt><strong>OS:</strong></dt>
-                    <dd>Windows, Linux/Ubuntu</dd>
-                </dl>
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-code"></i> Languages</h4>
+                        <p>Java, JavaScript, Python, Go, React, Node.js, HTML/CSS</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-database"></i> Databases &amp; Web</h4>
+                        <p>SQL (MySQL, JDBC), MongoDB, Docker, REST APIs, HTTP, Express</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-check-circle"></i> Testing &amp; Tools</h4>
+                        <p>JUnit, Playwright, Git, Agile/Scrum, Jira, Confluence</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-graduation-cap"></i> CS Fundamentals</h4>
+                        <p>Data structures, algorithms, software design, OOP</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="projects">
             <div class="section-content">
-                <h2>GitHub Projects</h2>
-                <p><em>Click images to enlarge.</em></p>
+                <h2>Projects</h2>
 
-                <div class="project-item">
-                    <div class="project-visual">
-                        <!-- Link to the FULL RESOLUTION image -->
-                        <a href="./images/react.jpg"
-                           data-lightbox="projects"
-                           data-title="ReactApp (Dynamic Web Application)">
-                            <!-- Thumbnail image -->
-                            <img src="./images/react.jpg" alt="React App Demo">
-                        </a>
+                <!-- MOUSEFLOW -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>MouseFlow &mdash; System Telemetry Utility</h3>
+                        <div class="tech-pills">
+                            <span>Java 21</span><span>JNA 5.13</span><span>Win32 API</span><span>JavaFX</span><span>JNativeHook</span>
+                        </div>
                     </div>
-                    <div class="project-details">
-                        <h3>ReactApp (Dynamic Web Application)</h3>
-                        <p>Developed a multi-page web application using React for the frontend. Features include dynamic data fetching and display via the Yelp REST API, with data persistence handled by a MongoDB backend.</p>
+
+                    <div class="project-body">
+                        <div class="project-preview">
+                            <a href="./images/mouseFlow.png" data-lightbox="projects" data-title="MouseFlow Tracker">
+                                <img src="./images/mouseFlow.png" alt="MouseFlow dashboard">
+                            </a>
+                        </div>
+                        <div class="project-text">
+                            <p>A global mouse tracker that hooks low-level Windows APIs to intercept cursor telemetry across all applications. Renders real-time trajectory paths on a live JavaFX dashboard and displays hovered application names. Designed for UX heatmaps and productivity analysis.</p>
+
+                            <h4>Architecture</h4>
+                            <pre>Windows OS
+  │  WH_MOUSE_LL hook (jnativehook)
+  ▼
+App.java ── Worker thread (40ms pulse)
+  │  ├─ Win32: GetForegroundWindow, WindowFromPoint (JNA)
+  │  ├─ Weighted-pulse CSV logging (5px deadzone + dwell time)
+  │  └─ Platform.runLater → UI updates
+  ▼
+TrackerUI.java ── JavaFX Application thread
+  │  ├─ Live X/Y, active/hovered window titles
+  │  ├─ Resizable path-trail canvas (multi-monitor normalized)
+  │  └─ Dark dashboard theme
+  ▼
+logs/mouse_log_&lt;ts&gt;.csv</pre>
+
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Weighted-pulse logging</strong> — writes CSV rows only on ≥5px movement or window change; accumulates dwell time during idle to minimize disk I/O</li>
+                                <li><strong>Multi-monitor normalization</strong> — computes virtual desktop bounds from all monitors, maps raw hook coords to canvas-relative percentages</li>
+                                <li><strong>Thread isolation</strong> — hook message pump on dedicated worker thread; all UI mutations marshaled via <code>Platform.runLater()</code></li>
+                                <li><strong>Resizable live canvas</strong> — path trail binds to window dimensions, auto-clears on resize</li>
+                            </ul>
+
+                            <h4>Debugging Highlights</h4>
+                            <ul>
+                                <li>Resolved path-trail boundary violations where rendered points drew outside the canvas viewport</li>
+                                <li>Fixed layout overflow in the stats panel causing clipped window titles at narrow widths</li>
+                                <li>Added zero-guards and size-change listeners to prevent null-pointer crashes during window resize</li>
+                            </ul>
+
+                            <div class="project-links">
+                                <a href="https://github.com/PureChocolate/mouseflow-tracker" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-item">
-                     <div class="project-visual">
-                         <a href="./images/aoc2019.png"
-                            data-lightbox="projects"
-                            data-title="Advent of Code (2019-23)">
-                            <img src="./images/aoc2019.png" alt="Advent of Code Visualization">
-                         </a>
+                <!-- OCR TRANSLATE -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>OCR Translate &mdash; AI Manga Translation Pipeline</h3>
+                        <div class="tech-pills">
+                            <span>Python 3.10+</span><span>Ollama</span><span>Qwen3-VL 8B</span><span>TranslateGemma 12B</span><span>Pillow</span>
+                        </div>
                     </div>
-                    <div class="project-details">
-                        <h3>Advent of Code (2019-23)</h3>
-                        <p>Solved a variety of algorithmic challenges (up to 25 annually) using Python and/or Java. Focused on developing efficient solutions, data structure selection, and problem decomposition under time constraints.</p>
+
+                    <div class="project-body">
+                        <div class="project-preview">
+                            <a href="./images/ocrTranslate.png" data-lightbox="projects" data-title="OCR Translate">
+                                <img src="./images/ocrTranslate.png" alt="OCR Translate output">
+                            </a>
+                        </div>
+                        <div class="project-text">
+                            <p>A fully local, two-stage AI pipeline that extracts Japanese text from raw comic/manga pages and translates it to natural English. Zero cloud APIs, zero Tesseract, zero manual preprocessing — just raw images in, English dialogue out.</p>
+
+                            <h4>Architecture</h4>
+                            <pre>images/*.png
+  │  preprocess.py: load, downscale, base64-encode
+  ▼
+ocr.py ── POST /api/chat → Qwen3-VL (vision model)
+  │  Returns raw Japanese text from speech bubbles
+  ▼
+translate.py ── POST /api/chat → TranslateGemma (LLM)
+  │  Furigana stripping → contextual English translation
+  ▼
+outputs/batch_translation.txt</pre>
+
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Two-stage local AI</strong> — vision model reads the image, separate LLM translates; both run on-device via Ollama</li>
+                                <li><strong>Zero preprocessing</strong> — raw images go direct to the vision model; no grayscale conversion, thresholding, or denoising</li>
+                                <li><strong>Vertical text support</strong> — vision models natively understand right-to-left Japanese reading order</li>
+                                <li><strong>Crash-resilient batch mode</strong> — streaming per-page writes survive mid-batch failures; restart picks up from scratch with no duplicates</li>
+                                <li><strong>Furigana stripping</strong> — regex-based removal of kana reading annotations before translation to prevent tokenization noise</li>
+                                <li><strong>563 lines of Python</strong> — no framework overhead, single-file modules, trivially auditable</li>
+                            </ul>
+
+                            <div class="project-links">
+                                <a href="https://github.com/PureChocolate/ocrTranslate" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                 <!-- <div class="project-item">
-                     <div class="project-visual">
-                         <a href="https://via.placeholder.com/800x600.png?text=Monopoly+Game+Large"
-                            data-lightbox="projects"
-                            data-title="Monopoly (Text-Based Game)">
-                             <img src="https://via.placeholder.com/300x200.png?text=Monopoly+Game" alt="Text-based Monopoly Screenshot">
-                         </a>
+                <!-- DEPLOYBOX -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>DeployBox &mdash; Single-Command Docker Runner</h3>
+                        <div class="tech-pills">
+                            <span>Go 1.23</span><span>Docker</span><span>YAML</span>
+                        </div>
                     </div>
-                    <div class="project-details">
-                        <h3>Monopoly (Text-Based Game)</h3>
-                        <p>Implemented a text-based version of Monopoly in Python, applying Object-Oriented Programming (OOP) principles to model game entities (players, properties, board) and game logic.</p>
-                    </div>
-                 </div> -->
 
-                 <div class="project-item">
-                    <div class="project-visual">
-                        <a href="./images/ttt.png"
-                           data-lightbox="projects"
-                           data-title="Tic-Tac-Toe (Java GUI)">
-                            <img src="./images/ttt.png" alt="Tic-Tac-Toe Java GUI">
-                        </a>
-                    </div>
-                    <div class="project-details">
-                        <h3>Tic-Tac-Toe (Java GUI)</h3>
-                        <p>Created a graphical Tic-Tac-Toe game using Java Swing during high school. Early exploration of GUI development and event handling.</p>
+                    <div class="project-body">
+                        <div class="project-preview">
+                            <a href="./images/DeployBox.png" data-lightbox="projects" data-title="DeployBox">
+                                <img src="./images/DeployBox.png" alt="DeployBox CLI">
+                            </a>
+                        </div>
+                        <div class="project-text">
+                            <p>A lightweight Go CLI that auto-detects any project's stack and generates a production-ready Dockerfile — then builds and runs the container with one command. No Docker knowledge required.</p>
+
+                            <h4>Architecture</h4>
+                            <pre>deploybox init &lt;dir&gt;
+  │  Scan: pom.xml→Java, requirements.txt→Python, package.json→Node, ...
+  │  Load: deploy.yaml overrides (name, port, env, volumes, command)
+  │  Generate: multi-stage Dockerfile with layer caching
+  ▼
+Dockerfile
+
+deploybox up &lt;dir&gt;
+  │  docker build -t deploybox-&lt;name&gt;
+  │  docker run -d --rm (or docker compose up for depends_on)
+  ▼
+Container running ✓</pre>
+
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Auto-detection</strong> — scans directory for <code>pom.xml</code>, <code>requirements.txt</code>, <code>package.json</code>, <code>Cargo.toml</code>, or <code>go.mod</code> and picks the right base image</li>
+                                <li><strong>Multi-stage builds</strong> — every Dockerfile uses layer caching; dependencies installed before source so code changes skip full rebuilds</li>
+                                <li><strong>Optional deploy.yaml</strong> — override name, port, environment variables, volume mounts, and startup command without touching the Dockerfile</li>
+                                <li><strong>Multi-service support</strong> — <code>depends_on</code> in deploy.yaml generates docker-compose.yml to wire containers together</li>
+                                <li><strong><code>host.docker.internal</code></strong> — containers reach host services (Ollama, databases) through Docker Desktop's built-in DNS</li>
+                                <li><strong>Cross-project consistency</strong> — all generated Dockerfiles follow identical conventions; audit one, trust all</li>
+                            </ul>
+
+                            <h4>Verified Against</h4>
+                            <ul>
+                                <li><strong>OCR Translate</strong> (Python) — built image, ran batch translation, connected to Windows Ollama via <code>host.docker.internal</code></li>
+                                <li><strong>MouseFlow Tracker</strong> (Java/Maven) — built multi-stage image, resolved JNA + JavaFX + JNativeHook, compiled successfully</li>
+                            </ul>
+
+                            <div class="project-links">
+                                <a href="https://github.com/PureChocolate/deploybox" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-             </div>
+            </div>
         </section>
+
+        <section id="experience">
+            <div class="section-content">
+                <h2>Experience</h2>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Wandke Consulting</h3>
+                            <p class="exp-role">Accessibility QA Consultant (Internship)</p>
+                        </div>
+                        <span class="exp-date">Jan &ndash; Mar 2023</span>
+                    </div>
+                    <ul>
+                        <li>Performed manual and automated WCAG 2.0/2.1 audits across multiple websites using AXE DevTools and browser DevTools — logged defects, delivered code-level remediation, and verified fixes.</li>
+                        <li>Collaborated with development teams via shared documentation and feedback loops, gaining experience in real-world QA workflows.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Fred Meyer (Kroger)</h3>
+                            <p class="exp-role">Logistics Operations Specialist</p>
+                        </div>
+                        <span class="exp-date">Nov 2019 &ndash; Present</span>
+                    </div>
+                    <ul>
+                        <li>Investigate and reconcile daily inventory discrepancies by cross-referencing physical stock with digital records — honed strong attention to detail and systematic troubleshooting habits.</li>
+                        <li>Operate inventory management software and Zebra RF hardware in a fast-paced environment, ensuring data accuracy across systems.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer section - Now full width potentially -->
     <footer>
         <div class="section-content footer-content">
-             <p>© 2024 John Doe</p>
+            <p>&copy; 2026 Gurkirat Singh</p>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#top" id="back-to-top" title="Back to Top">
+    <a href="#top" id="back-to-top" title="Top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
