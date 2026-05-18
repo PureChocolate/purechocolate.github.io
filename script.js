@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 async function checkStatus() {
     const badge = document.getElementById('ocr-status');
     try {
-        const res = await fetch('https://ocr.gurkirat.net/api/health', { method: 'GET', signal: AbortSignal.timeout(5000) });
+        const res = await fetch('https://ocr.gurkirat.net/api/health', { method: 'GET', signal: AbortSignal.timeout(10000) });
         if (res.ok) {
             badge.textContent = 'online';
             badge.className = 'ocr-status online';
