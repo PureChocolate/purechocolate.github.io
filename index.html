@@ -175,6 +175,20 @@ outputs/batch_translation.txt</pre>
                             <div class="project-links">
                                 <a href="https://github.com/PureChocolate/ocrTranslate" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
                             </div>
+
+                            <div class="ocr-demo">
+                                <h4><i class="fas fa-cloud-upload-alt"></i> Try It Live <span id="ocr-status" class="ocr-status checking">checking&hellip;</span></h4>
+                                <form id="ocr-form" class="ocr-upload" onsubmit="return handleOCR(event)">
+                                    <input type="file" id="ocr-file" accept="image/*" required>
+                                    <button type="submit">Translate Image</button>
+                                </form>
+                                <form id="text-form" class="ocr-upload" onsubmit="return handleTextTranslate(event)">
+                                    <input type="text" id="text-input" placeholder="Paste Japanese text here&hellip;" required>
+                                    <button type="submit">Translate Text</button>
+                                </form>
+                                <div id="ocr-spinner" class="ocr-spinner hidden">Translating&hellip;</div>
+                                <div id="ocr-result" class="ocr-result"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
