@@ -599,7 +599,9 @@ footer {
     .hero-tagline { font-size: 1em; }
     .project-body { flex-direction: column; }
     .project-preview { flex: none; max-width: 300px; margin: 0 auto; }
-    .project-text pre { font-size: 0.7em; }
+    .project-text pre { font-size: 0.7em; white-space: pre-wrap; word-break: break-all; }
+    .project-text { min-width: 0; }
+    .project-card { padding: 20px; }
     section { padding: 36px 0; }
     .nav-links a { padding: 5px 10px; font-size: 0.82em; }
 }
@@ -610,4 +612,13 @@ footer {
     .hero-link { padding: 6px 12px; font-size: 0.85em; }
     .exp-header { flex-direction: column; }
     .skills-grid { grid-template-columns: 1fr; }
+    .project-card { padding: 16px; }
+    .tech-pills { gap: 4px; }
+    .tech-pills span { font-size: 0.7em; padding: 2px 7px; }
+    .ocr-upload { flex-direction: column; align-items: stretch; }
+    .ocr-upload input[type="file"],
+    .ocr-upload input[type="text"] { min-width: 0; }
+    .ocr-upload button { min-width: 0; }
+    .nav-inner { padding: 0 12px; }
+    .section-content { padding: 0 12px; }
 }
