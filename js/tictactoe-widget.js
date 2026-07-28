@@ -2,7 +2,7 @@ window.TTTWidget = (function () {
 
   // ── Config ───────────────────────────────────────────────
 
-  const API_BASE = window.TTTConfig?.API_BASE || '';
+  const API_BASE = window.TTTConfig?.API_BASE || 'https://ttt.gurkirat.net';
 
   // ── State ────────────────────────────────────────────────
 
