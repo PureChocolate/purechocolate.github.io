@@ -11,6 +11,7 @@ window.TTTWidget = (function () {
   let playerMark = null;   // 'X' | 'O' (for online mode)
   let roomCode = null;     // 4-char room code (for online mode)
   let pollTimer = null;    // setInterval id
+  let pollWaitStart = null; // Date.now() when waiting started (for timeout)
   let container = null;
   let statusEl = null;
 
@@ -212,7 +213,8 @@ window.TTTWidget = (function () {
 
   function startPolling() {
     stopPolling();
-    pollTimer = setInterval(pollRoom, 500);
+    pollWaitStart = Date.now();
+    pollTimer = setInterval(pollRoom, 1000);
   }
 
   function stopPolling() {
@@ -223,6 +225,16 @@ window.TTTWidget = (function () {
   }
 
   async function pollRoom() {
+    // Timeout — 5 minutes waiting for opponent
+    if (state === null && Date.now() - pollWaitStart > 300000) {
+      stopPolling();
+      clearSavedRoom();
+      showOnlineMenu();
+      const msg = document.getElementById('ttt-menu-msg');
+      if (msg) msg.textContent = 'Timed out — no opponent joined.';
+      return;
+    }
+
     try {
       const res = await fetch(API_BASE + '/room/' + roomCode);
       const data = await res.json();
