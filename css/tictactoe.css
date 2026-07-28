@@ -1,0 +1,169 @@
+/* ============================================
+   Tic-Tac-Toe Widget
+   ============================================ */
+
+.ttt-mode-select { text-align: center; }
+
+.ttt-mode-label {
+  color: #94a3b8;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.ttt-mode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.ttt-mode-btn {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85em;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ttt-mode-btn:hover {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+/* ── Board ──────────────────────────────── */
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  aspect-ratio: 1;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.ttt-cell {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  user-select: none;
+  min-height: 72px;
+}
+.ttt-cell:not(.taken):hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+.ttt-cell.taken {
+  cursor: default;
+}
+
+.ttt-cell.taken.mark-x { color: #38bdf8; }
+.ttt-cell.taken.mark-o { color: #f472b6; }
+
+.ttt-cell.winner {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+/* ── Status & Controls ───────────────────── */
+
+.ttt-status {
+  text-align: center;
+  font-size: 0.9em;
+  color: #94a3b8;
+  margin: 12px 0 8px;
+  min-height: 1.3em;
+}
+
+.ttt-status.ttt-gameover {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.ttt-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ttt-reset-btn,
+.ttt-back-btn {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8em;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ttt-reset-btn:hover,
+.ttt-back-btn:hover {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+/* ── Online Multiplayer ───────────────────── */
+
+.ttt-online-waiting {
+  text-align: center;
+}
+
+.ttt-room-label {
+  color: #64748b;
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.ttt-room-code {
+  font-size: 2em;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 6px;
+  margin-bottom: 10px;
+}
+
+.ttt-copy-btn {
+  margin-bottom: 12px;
+}
+
+.ttt-join-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ttt-join-input {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #cbd5e1;
+  font-size: 0.9em;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  width: 90px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.ttt-join-input::placeholder {
+  color: #475569;
+  letter-spacing: 1px;
+  text-transform: none;
+}

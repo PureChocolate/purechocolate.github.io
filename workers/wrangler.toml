@@ -1,0 +1,7 @@
+name = "ttt-multiplayer"
+main = "multiplayer-worker.js"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "TTT_ROOMS"
+id = "1b8e56d03d154996bac69de3cf84f0ae"

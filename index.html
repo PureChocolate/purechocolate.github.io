@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/tictactoe.css">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 </head>
 <body id="top">
@@ -247,6 +248,58 @@ Container running ✓</pre>
                         </div>
                     </div>
                 </div>
+
+                <!-- TIC-TAC-TOE -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Tic-Tac-Toe &mdash; Interactive Game Widget</h3>
+                        <div class="tech-pills">
+                            <span>JavaScript</span><span>CSS Grid</span><span>Minimax AI</span><span>Cloudflare Workers</span><span>Workers KV</span>
+                        </div>
+                    </div>
+
+                    <div class="project-body">
+                        <div class="project-preview ttt-preview">
+                            <div id="ttt-widget"></div>
+                        </div>
+                        <div class="project-text">
+                            <p>A browser-based tic-tac-toe widget built from scratch with an unbeatable AI opponent and online multiplayer. Features four game modes, immutable state management, a Cloudflare Worker relay with KV persistence, and room-code matchmaking.</p>
+
+                            <h4>Features</h4>
+                            <ul>
+                                <li><strong>Unbeatable AI (Hard)</strong> &mdash; minimax algorithm explores the full game tree for perfect play; Easy mode picks moves at random</li>
+                                <li><strong>Online multiplayer</strong> &mdash; room-code matchmaking via Cloudflare Worker relay with Workers KV for cross-instance state sharing</li>
+                                <li><strong>Session persistence</strong> &mdash; sessionStorage-backed rejoin; refresh or change tabs without losing your game</li>
+                                <li><strong>Four game modes</strong> &mdash; vs AI (Easy), vs AI (Hard), local PvP, and online PvP</li>
+                                <li><strong>State-driven rendering</strong> &mdash; immutable game state with a single render path; DOM always reflects current state</li>
+                                <li><strong>Win line highlighting</strong> &mdash; winning triplet cells get a highlighted background for instant visual feedback</li>
+                            </ul>
+
+                            <h4>Architecture</h4>
+                            <pre>TTTEngine (pure logic, zero DOM)
+  ├─ createGame()    → fresh state object
+  ├─ makeMove()      → immutable move + win/draw detection
+  ├─ checkWin()      → scans 8 win lines against board
+  ├─ getBestMove()   → easy=random, hard=minimax (recursive tree search)
+  └─ minimax()       → +10 / -10 / 0 scoring, in-place mutate & undo
+
+TTTWidget (UI controller)
+  ├─ mount()         → bootstraps widget into DOM container
+  ├─ renderBoard()   → redraws 9 cells from current state
+  ├─ handleClick()   → validates, applies move, triggers AI or POST
+  ├─ updateStatus()  → turn indicator, win/draw messages
+  └─ pollRoom()      → 500ms polling for opponent moves in online mode
+
+Cloudflare Worker (multiplayer relay)
+  ├─ POST /room/create        → generates 4-char room code
+  ├─ POST /room/join/:code    → joins as O, supports X-Player-Mark rejoin
+  ├─ POST /room/:code/move    → validates turn, applies move server-side
+  ├─ GET  /room/:code         → polls current board state
+  └─ POST /room/:code/rematch → resets board, swaps X/O</pre>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -296,8 +349,12 @@ Container running ✓</pre>
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <script src="js/config.js"></script>
+    <script src="js/tictactoe-engine.js"></script>
+    <script src="js/tictactoe-widget.js"></script>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { TTTWidget.mount('ttt-widget'); });</script>
 </body>
 </html>
