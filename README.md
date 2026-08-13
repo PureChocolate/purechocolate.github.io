@@ -10,6 +10,7 @@ Dark theme, single-page layout with project deep-dives and an interactive tic-ta
 - **OCR Translate** — Local AI manga translation pipeline (Python, Ollama, Qwen3-VL)
 - **DeployBox** — Go CLI for single-command Docker deployment
 - **Tic-Tac-Toe** — Browser game with minimax AI and online PvP via Cloudflare Workers
+- **Voice Agent** — Zero-cloud voice assistant for an AI coding agent (Python, SSE, WASAPI, S2/Kokoro TTS, Vulkan/GGUF on AMD)
 
 ## Structure
 

@@ -300,6 +300,54 @@ Cloudflare Worker (multiplayer relay)
                     </div>
                 </div>
 
+                <!-- VOICE AGENT -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Voice Agent &mdash; Local AI Voice Assistant</h3>
+                        <div class="tech-pills">
+                            <span>Python</span><span>SSE</span><span>WASAPI</span><span>GGUF</span><span>Vulkan</span><span>AMD ROCm</span><span>WSL</span>
+                        </div>
+                    </div>
+
+                    <div class="project-body">
+                        <div class="project-preview">
+                            <a href="./images/VoiceAgentTerminal.png" data-lightbox="projects" data-title="Voice Agent">
+                                <img src="./images/VoiceAgentTerminal.png" alt="Voice Agent terminal">
+                            </a>
+                        </div>
+                        <div class="project-text">
+                            <p>A zero-cloud voice assistant for an AI coding agent. Listens to the agent's reply stream over SSE, synthesizes speech entirely on-device with Fish Audio S2 (GGUF + Vulkan on an AMD GPU) or a Kokoro fast engine, and speaks through your speakers &mdash; no cloud services anywhere in the voice path.</p>
+
+                            <h4>Architecture</h4>
+                            <pre>opencode (AI coding agent, running in WSL)
+  │  SSE event stream → completed replies
+  ▼
+voice_agent.py (Windows Python)
+  ├─ sanitize()   → tables/code → "[table]" / "[code]" cues
+  ├─ split_text() → ≤480-char sentence chunks
+  └─ POST /generate per chunk (prefetch next while playing)
+      ├─ s2.exe (s2.cpp)   → S2 Pro q4_k_m · Vulkan · 7 GB VRAM
+      └─ kokoro_server.py → Kokoro-82M · CPU · ~10× realtime
+  ▼
+WASAPI → speakers (2s pre-buffer, self-healing stream)</pre>
+
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Dual engine</strong> &mdash; S2 for expressive speech with natural-language style and emotion tags, Kokoro for near-instant CPU narration; toggle via <code>engine.conf</code></li>
+                                <li><strong>Zero cloud</strong> &mdash; models run locally on the AMD GPU (Vulkan) or CPU; the only network egress is the coding agent's own API</li>
+                                <li><strong>Voice cloning</strong> &mdash; the assistant speaks with a cloned voice from a 10&ndash;30 second sample</li>
+                                <li><strong>Stutter-free playback</strong> &mdash; the pipeline runs at ~1.5&times; realtime, so replies are synthesized one sentence-chunk at a time with prefetch overlap; tables and code blocks collapse to short spoken cues</li>
+                                <li><strong>Resilient</strong> &mdash; self-healing audio stream survives device changes; single-flight TTS with graceful queueing</li>
+                                <li><strong>Fully documented</strong> &mdash; changelog of 15 resolved errors with root causes, plus a structured learning path</li>
+                            </ul>
+
+                            <div class="project-links">
+                                <a href="https://github.com/PureChocolate/opencode-voice-agent" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
