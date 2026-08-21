@@ -32,7 +32,7 @@
         <div class="hero-content">
             <p class="hero-eyebrow">Software Engineer &mdash; Washington, US</p>
             <h1>Gurkirat Singh</h1>
-            <p class="hero-tagline">B.S. in Math &amp; CS from Western Washington University. I build across the stack — low-level Windows systems (Java, C#), local GPU AI pipelines (Python), and web apps (JavaScript, Cloudflare Workers) — writing every line myself, with AI agents as reviewers and debuggers. Strong testing mindset from a QA/accessibility background.</p>
+            <p class="hero-tagline">B.S. in Math &amp; CS from Western Washington University. I build across the stack: low-level Windows systems (Java, C#), local GPU AI pipelines (Python), and web apps (JavaScript, Cloudflare Workers), writing every line myself with AI agents as reviewers and debuggers. Strong testing mindset from a QA/accessibility background.</p>
             <div class="hero-links">
                 <a href="mailto:singh@gurkirat.net" class="hero-link"><i class="fas fa-envelope"></i> singh@gurkirat.net</a>
                 <a href="https://github.com/PureChocolate" target="_blank" class="hero-link"><i class="fab fa-github"></i> GitHub</a>
@@ -45,7 +45,7 @@
         <section id="about">
             <div class="section-content">
                 <h2>About</h2>
-                <p>Software engineer with a B.S. in Mathematics &amp; Computer Science from Western Washington University. My projects span low-level Windows systems (Java, C#, Win32, audio DSP), fully local AI pipelines (Python, Ollama, GGUF/Vulkan on an AMD GPU), and web (JavaScript, Cloudflare Workers). I write every line of code myself — AI agents review, debug, and accelerate, and I can explain each line I ship. An accessibility (WCAG) QA internship taught me to build with testing in mind. Seeking an entry-level or junior software engineering role in Washington state or US-remote.</p>
+                <p>Software engineer with a B.S. in Mathematics &amp; Computer Science from Western Washington University. My projects span low-level Windows systems (Java, C#, Win32, audio DSP), fully local AI pipelines (Python, Ollama, GGUF/Vulkan on an AMD GPU), and web (JavaScript, Cloudflare Workers). I write every line of code myself; AI agents review, debug, and accelerate, and I can explain each line I ship. An accessibility (WCAG) QA internship taught me to build with testing in mind. Seeking an entry-level or junior software engineering role in Washington state or US-remote.</p>
             </div>
         </section>
 
@@ -119,12 +119,12 @@ Output device (feedback-loop safe, headphones)</pre>
 
                             <h4>Key Features</h4>
                             <ul>
-                                <li><strong>Window-following audio</strong> &mdash; azimuth/distance computed from the focused window's rect across the virtual desktop (&plusmn;70&deg; front-arc model); left/right image verified to follow window movement by ear</li>
-                                <li><strong>Duplex-theory spatialization</strong> &mdash; ITD ring-buffer delay line (max 630&nbsp;&micro;s) on the far ear plus equal-power ILD panning with constant perceived loudness</li>
-                                <li><strong>Measured latency</strong> &mdash; synthesized click-train probe reports 2.8 / 29.4 / 55.3 ms (min/avg/max) through the full capture&rarr;spatialize&rarr;render path</li>
-                                <li><strong>HRTF loader (M3, in progress)</strong> &mdash; parses all 1420 raw big-endian MIT KEMAR HRIRs; loader self-verifies against the published dataset values (max sample &minus;26793 &divide; 32768)</li>
-                                <li><strong>Low-level Win32</strong> &mdash; P/Invoke into user32.dll for window/monitor enumeration, per-monitor DPI awareness, asymmetric-monitor virtual desktop union</li>
-                                <li><strong>Feedback-loop safe</strong> &mdash; capture and output devices must differ, so the spatialized mix can't re-enter its own loopback</li>
+                                <li><strong>Window-following audio</strong>: azimuth/distance computed from the focused window's rect across the virtual desktop (&plusmn;70&deg; front-arc model); left/right image verified to follow window movement by ear</li>
+                                <li><strong>Duplex-theory spatialization</strong>: ITD ring-buffer delay line (max 630&nbsp;&micro;s) on the far ear plus equal-power ILD panning with constant perceived loudness</li>
+                                <li><strong>Measured latency</strong>: synthesized click-train probe reports 2.8 / 29.4 / 55.3 ms (min/avg/max) through the full capture&rarr;spatialize&rarr;render path</li>
+                                <li><strong>HRTF loader (M3, in progress)</strong>: parses all 1420 raw big-endian MIT KEMAR HRIRs; loader self-verifies against the published dataset values (max sample &minus;26793 &divide; 32768)</li>
+                                <li><strong>Low-level Win32</strong>: P/Invoke into user32.dll for window/monitor enumeration, per-monitor DPI awareness, asymmetric-monitor virtual desktop union</li>
+                                <li><strong>Feedback-loop safe</strong>: capture and output devices must differ, so the spatialized mix can't re-enter its own loopback</li>
                             </ul>
 
                             <div class="project-links">
@@ -151,7 +151,7 @@ Output device (feedback-loop safe, headphones)</pre>
                             </a>
                         </div>
                         <div class="project-text">
-                            <p>A zero-cloud voice assistant for an AI coding agent. Listens to the agent's reply stream over SSE, synthesizes speech entirely on-device with Fish Audio S2 (GGUF + Vulkan on an AMD GPU) or a Kokoro fast engine, and speaks through your speakers &mdash; no cloud services anywhere in the voice path.</p>
+                            <p>A zero-cloud voice assistant for an AI coding agent. Listens to the agent's reply stream over SSE, synthesizes speech entirely on-device with Fish Audio S2 (GGUF + Vulkan on an AMD GPU) or a Kokoro fast engine, and speaks through your speakers with no cloud services anywhere in the voice path.</p>
 
                             <h4>Architecture</h4>
                             <pre>opencode (AI coding agent, running in WSL)
@@ -168,13 +168,13 @@ WASAPI → speakers (2s pre-buffer, self-healing stream)</pre>
 
                             <h4>Key Features</h4>
                             <ul>
-                                <li><strong>Dual engine</strong> &mdash; S2 for expressive speech with natural-language style and emotion tags, Kokoro for near-instant CPU narration; toggle via <code>engine.conf</code></li>
-                                <li><strong>Zero cloud</strong> &mdash; models run locally on the AMD GPU (Vulkan) or CPU; the only network egress is the coding agent's own API</li>
-                                <li><strong>Voice cloning</strong> &mdash; the assistant speaks with a cloned voice from a 10&ndash;30 second sample</li>
-                                <li><strong>Stutter-free playback</strong> &mdash; the pipeline runs at ~1.5&times; realtime, so replies are synthesized one sentence-chunk at a time with prefetch overlap; tables and code blocks collapse to short spoken cues</li>
-                                <li><strong>Resilient</strong> &mdash; self-healing audio stream survives device changes; single-flight TTS with graceful queueing</li>
-                                <li><strong>Open-source contribution</strong> &mdash; submitted upstream PR #48 to s2.cpp fixing an unqualified <code>max</code> that breaks builds under <code>NOMINMAX</code>; avoided a 16&nbsp;GB RAM OOM by moving from the torch server to a C++/GGML engine</li>
-                                <li><strong>Fully documented</strong> &mdash; changelog of 15 resolved errors with root causes, plus a structured learning path</li>
+                                <li><strong>Dual engine</strong>: S2 for expressive speech with natural-language style and emotion tags, Kokoro for near-instant CPU narration; toggle via <code>engine.conf</code></li>
+                                <li><strong>Zero cloud</strong>: models run locally on the AMD GPU (Vulkan) or CPU; the only network egress is the coding agent's own API</li>
+                                <li><strong>Voice cloning</strong>: the assistant speaks with a cloned voice from a 10&ndash;30 second sample</li>
+                                <li><strong>Stutter-free playback</strong>: the pipeline runs at ~1.5&times; realtime, so replies are synthesized one sentence-chunk at a time with prefetch overlap; tables and code blocks collapse to short spoken cues</li>
+                                <li><strong>Resilient</strong>: self-healing audio stream survives device changes; single-flight TTS with graceful queueing</li>
+                                <li><strong>Open-source contribution</strong>: submitted upstream PR #48 to s2.cpp fixing an unqualified <code>max</code> that breaks builds under <code>NOMINMAX</code>; avoided a 16&nbsp;GB RAM OOM by moving from the torch server to a C++/GGML engine</li>
+                                <li><strong>Fully documented</strong>: changelog of 15 resolved errors with root causes, plus a structured learning path</li>
                             </ul>
 
                             <div class="project-links">
@@ -202,12 +202,12 @@ WASAPI → speakers (2s pre-buffer, self-healing stream)</pre>
 
                             <h4>Features</h4>
                             <ul>
-                                <li><strong>Unbeatable AI (Hard)</strong> &mdash; minimax algorithm explores the full game tree for perfect play; Easy mode picks moves at random</li>
-                                <li><strong>Online multiplayer</strong> &mdash; room-code matchmaking via Cloudflare Worker relay with Workers KV for cross-instance state sharing</li>
-                                <li><strong>Session persistence</strong> &mdash; sessionStorage-backed rejoin; refresh or change tabs without losing your game</li>
-                                <li><strong>Four game modes</strong> &mdash; vs AI (Easy), vs AI (Hard), local PvP, and online PvP</li>
-                                <li><strong>State-driven rendering</strong> &mdash; immutable game state with a single render path; DOM always reflects current state</li>
-                                <li><strong>Win line highlighting</strong> &mdash; winning triplet cells get a highlighted background for instant visual feedback</li>
+                                <li><strong>Unbeatable AI (Hard)</strong>: minimax algorithm explores the full game tree for perfect play; Easy mode picks moves at random</li>
+                                <li><strong>Online multiplayer</strong>: room-code matchmaking via Cloudflare Worker relay with Workers KV for cross-instance state sharing</li>
+                                <li><strong>Session persistence</strong>: sessionStorage-backed rejoin; refresh or change tabs without losing your game</li>
+                                <li><strong>Four game modes</strong>: vs AI (Easy), vs AI (Hard), local PvP, and online PvP</li>
+                                <li><strong>State-driven rendering</strong>: immutable game state with a single render path; DOM always reflects current state</li>
+                                <li><strong>Win line highlighting</strong>: winning triplet cells get a highlighted background for instant visual feedback</li>
                             </ul>
 
                             <h4>Architecture</h4>
@@ -251,7 +251,7 @@ Cloudflare Worker (multiplayer relay)
                             </a>
                         </div>
                         <div class="project-text">
-                            <p>A fully local, two-stage AI pipeline that extracts Japanese text from raw comic/manga pages and translates it to natural English. Zero cloud APIs, zero Tesseract, zero manual preprocessing — just raw images in, English dialogue out.</p>
+                            <p>A fully local, two-stage AI pipeline that extracts Japanese text from raw comic/manga pages and translates it to natural English. Zero cloud APIs, zero Tesseract, zero manual preprocessing: raw images in, English dialogue out.</p>
 
                             <h4>Architecture</h4>
                             <pre>images/*.png
@@ -267,12 +267,12 @@ outputs/batch_translation.txt</pre>
 
                             <h4>Key Features</h4>
                             <ul>
-                                <li><strong>Two-stage local AI</strong> — vision model reads the image, separate LLM translates; both run on-device via Ollama</li>
-                                <li><strong>Zero preprocessing</strong> — raw images go direct to the vision model; no grayscale conversion, thresholding, or denoising</li>
-                                <li><strong>Vertical text support</strong> — vision models natively understand right-to-left Japanese reading order</li>
-                                <li><strong>Crash-resilient batch mode</strong> — streaming per-page writes survive mid-batch failures; restart picks up from scratch with no duplicates</li>
-                                <li><strong>Furigana stripping</strong> — regex-based removal of kana reading annotations before translation to prevent tokenization noise</li>
-                                <li><strong>563 lines of Python</strong> — no framework overhead, single-file modules, trivially auditable</li>
+                                <li><strong>Two-stage local AI</strong>: vision model reads the image, separate LLM translates; both run on-device via Ollama</li>
+                                <li><strong>Zero preprocessing</strong>: raw images go direct to the vision model; no grayscale conversion, thresholding, or denoising</li>
+                                <li><strong>Vertical text support</strong>: vision models natively understand right-to-left Japanese reading order</li>
+                                <li><strong>Crash-resilient batch mode</strong>: streaming per-page writes survive mid-batch failures; restart picks up from scratch with no duplicates</li>
+                                <li><strong>Furigana stripping</strong>: regex-based removal of kana reading annotations before translation to prevent tokenization noise</li>
+                                <li><strong>563 lines of Python</strong>: no framework overhead, single-file modules, trivially auditable</li>
                             </ul>
 
                             <div class="project-links">
@@ -332,10 +332,10 @@ logs/mouse_log_&lt;ts&gt;.csv</pre>
 
                             <h4>Key Features</h4>
                             <ul>
-                                <li><strong>Weighted-pulse logging</strong> — writes CSV rows only on ≥5px movement or window change; accumulates dwell time during idle to minimize disk I/O</li>
-                                <li><strong>Multi-monitor normalization</strong> — computes virtual desktop bounds from all monitors, maps raw hook coords to canvas-relative percentages</li>
-                                <li><strong>Thread isolation</strong> — hook message pump on dedicated worker thread; all UI mutations marshaled via <code>Platform.runLater()</code></li>
-                                <li><strong>Resizable live canvas</strong> — path trail binds to window dimensions, auto-clears on resize</li>
+                                <li><strong>Weighted-pulse logging</strong>: writes CSV rows only on ≥5px movement or window change; accumulates dwell time during idle to minimize disk I/O</li>
+                                <li><strong>Multi-monitor normalization</strong>: computes virtual desktop bounds from all monitors, maps raw hook coords to canvas-relative percentages</li>
+                                <li><strong>Thread isolation</strong>: hook message pump on dedicated worker thread; all UI mutations marshaled via <code>Platform.runLater()</code></li>
+                                <li><strong>Resizable live canvas</strong>: path trail binds to window dimensions, auto-clears on resize</li>
                             </ul>
 
                             <h4>Debugging Highlights</h4>
@@ -368,7 +368,7 @@ logs/mouse_log_&lt;ts&gt;.csv</pre>
                             </a>
                         </div>
                         <div class="project-text">
-                            <p>A lightweight Go CLI that auto-detects any project's stack and generates a production-ready Dockerfile — then builds and runs the container with one command. No Docker knowledge required.</p>
+                            <p>A lightweight Go CLI that auto-detects any project's stack and generates a production-ready Dockerfile, then builds and runs the container with one command. No Docker knowledge required.</p>
 
                             <h4>Architecture</h4>
                             <pre>deploybox init &lt;dir&gt;
@@ -386,18 +386,18 @@ Container running ✓</pre>
 
                             <h4>Key Features</h4>
                             <ul>
-                                <li><strong>Auto-detection</strong> — scans directory for <code>pom.xml</code>, <code>requirements.txt</code>, <code>package.json</code>, <code>Cargo.toml</code>, or <code>go.mod</code> and picks the right base image</li>
-                                <li><strong>Multi-stage builds</strong> — every Dockerfile uses layer caching; dependencies installed before source so code changes skip full rebuilds</li>
-                                <li><strong>Optional deploy.yaml</strong> — override name, port, environment variables, volume mounts, and startup command without touching the Dockerfile</li>
-                                <li><strong>Multi-service support</strong> — <code>depends_on</code> in deploy.yaml generates docker-compose.yml to wire containers together</li>
-                                <li><strong><code>host.docker.internal</code></strong> — containers reach host services (Ollama, databases) through Docker Desktop's built-in DNS</li>
-                                <li><strong>Cross-project consistency</strong> — all generated Dockerfiles follow identical conventions; audit one, trust all</li>
+                                <li><strong>Auto-detection</strong>: scans directory for <code>pom.xml</code>, <code>requirements.txt</code>, <code>package.json</code>, <code>Cargo.toml</code>, or <code>go.mod</code> and picks the right base image</li>
+                                <li><strong>Multi-stage builds</strong>: every Dockerfile uses layer caching; dependencies installed before source so code changes skip full rebuilds</li>
+                                <li><strong>Optional deploy.yaml</strong>: override name, port, environment variables, volume mounts, and startup command without touching the Dockerfile</li>
+                                <li><strong>Multi-service support</strong>: <code>depends_on</code> in deploy.yaml generates docker-compose.yml to wire containers together</li>
+                                <li><strong><code>host.docker.internal</code></strong>: containers reach host services (Ollama, databases) through Docker Desktop's built-in DNS</li>
+                                <li><strong>Cross-project consistency</strong>: all generated Dockerfiles follow identical conventions; audit one, trust all</li>
                             </ul>
 
                             <h4>Verified Against</h4>
                             <ul>
-                                <li><strong>OCR Translate</strong> (Python) — built image, ran batch translation, connected to Windows Ollama via <code>host.docker.internal</code></li>
-                                <li><strong>MouseFlow Tracker</strong> (Java/Maven) — built multi-stage image, resolved JNA + JavaFX + JNativeHook, compiled successfully</li>
+                                <li><strong>OCR Translate</strong> (Python): built image, ran batch translation, connected to Windows Ollama via <code>host.docker.internal</code></li>
+                                <li><strong>MouseFlow Tracker</strong> (Java/Maven): built multi-stage image, resolved JNA + JavaFX + JNativeHook, compiled successfully</li>
                             </ul>
 
                             <div class="project-links">
@@ -423,7 +423,7 @@ Container running ✓</pre>
                         <span class="exp-date">Jan &ndash; Mar 2023</span>
                     </div>
                     <ul>
-                        <li>Performed manual and automated WCAG 2.0/2.1 audits across multiple websites using AXE DevTools and browser DevTools — logged defects, delivered code-level remediation, and verified fixes.</li>
+                        <li>Performed manual and automated WCAG 2.0/2.1 audits across multiple websites using AXE DevTools and browser DevTools, logging defects, delivering code-level remediation, and verifying fixes.</li>
                         <li>Collaborated with development teams via shared documentation and feedback loops, gaining experience in real-world QA workflows.</li>
                     </ul>
                 </div>
@@ -437,7 +437,7 @@ Container running ✓</pre>
                         <span class="exp-date">Nov 2019 &ndash; Present</span>
                     </div>
                     <ul>
-                        <li>Investigate and reconcile daily inventory discrepancies by cross-referencing physical stock with digital records — honed strong attention to detail and systematic troubleshooting habits.</li>
+                        <li>Investigate and reconcile daily inventory discrepancies by cross-referencing physical stock with digital records, honing strong attention to detail and systematic troubleshooting habits.</li>
                         <li>Operate inventory management software and Zebra RF hardware in a fast-paced environment, ensuring data accuracy across systems.</li>
                     </ul>
                 </div>
