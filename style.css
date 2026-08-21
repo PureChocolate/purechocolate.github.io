@@ -305,6 +305,15 @@ section h2 {
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
+.project-video {
+    margin-bottom: 24px;
+}
+.project-video video {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: block;
+}
 .img-tag {
     font-size: 0.72em;
     color: #475569;

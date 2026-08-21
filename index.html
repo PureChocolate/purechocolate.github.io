@@ -32,7 +32,7 @@
         <div class="hero-content">
             <p class="hero-eyebrow">Software Engineer &mdash; Washington, US</p>
             <h1>Gurkirat Singh</h1>
-            <p class="hero-tagline">Full-stack developer with a B.S. in Math &amp; CS. I write clean, testable code across the stack — from low-level Win32 telemetry to React/Node web apps. Strong testing mindset, comfortable in Agile teams.</p>
+            <p class="hero-tagline">B.S. in Math &amp; CS from Western Washington University. I build across the stack — low-level Windows systems (Java, C#), local GPU AI pipelines (Python), and web apps (JavaScript, Cloudflare Workers) — writing every line myself, with AI agents as reviewers and debuggers. Strong testing mindset from a QA/accessibility background.</p>
             <div class="hero-links">
                 <a href="mailto:singh@gurkirat.net" class="hero-link"><i class="fas fa-envelope"></i> singh@gurkirat.net</a>
                 <a href="https://github.com/PureChocolate" target="_blank" class="hero-link"><i class="fab fa-github"></i> GitHub</a>
@@ -45,7 +45,7 @@
         <section id="about">
             <div class="section-content">
                 <h2>About</h2>
-                <p>Associate Software Engineer with a B.S. in Mathematics &amp; Computer Science from Western Washington University. Full-stack project experience building web applications with Java, JavaScript, Node, React, and SQL — backed by a solid foundation in data structures, algorithms, and software design. Collaborative team member with a strong testing mindset; focused on delivering clean, maintainable code in an Agile environment.</p>
+                <p>Software engineer with a B.S. in Mathematics &amp; Computer Science from Western Washington University. My projects span low-level Windows systems (Java, C#, Win32, audio DSP), fully local AI pipelines (Python, Ollama, GGUF/Vulkan on an AMD GPU), and web (JavaScript, Cloudflare Workers). I write every line of code myself — AI agents review, debug, and accelerate, and I can explain each line I ship. An accessibility (WCAG) QA internship taught me to build with testing in mind. Seeking an entry-level or junior software engineering role in Washington state or US-remote.</p>
             </div>
         </section>
 
@@ -59,7 +59,11 @@
                     </div>
                     <div class="skill-category">
                         <h4><i class="fas fa-database"></i> Databases &amp; Web</h4>
-                        <p>SQL (MySQL, JDBC), MongoDB, Docker, REST APIs, HTTP, Express</p>
+                        <p>SQL (MySQL, JDBC), MongoDB, REST APIs, HTTP, Express, Docker</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-microchip"></i> AI &amp; Systems</h4>
+                        <p>Local LLM/TTS inference (GGUF, Vulkan on AMD GPU, Ollama), SSE streaming, audio DSP, Cloudflare Workers, Workers KV</p>
                     </div>
                     <div class="skill-category">
                         <h4><i class="fas fa-check-circle"></i> Testing &amp; Tools</h4>
@@ -77,58 +81,156 @@
             <div class="section-content">
                 <h2>Projects</h2>
 
-                <!-- MOUSEFLOW -->
+                <!-- SPATIAL AUDIO -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>MouseFlow &mdash; System Telemetry Utility</h3>
+                        <h3>SpatialAudio &mdash; Desktop Audio Spatializer</h3>
                         <div class="tech-pills">
-                            <span>Java 21</span><span>JNA 5.13</span><span>Win32 API</span><span>JavaFX</span><span>JNativeHook</span>
+                            <span>C# / .NET 8</span><span>NAudio</span><span>WASAPI</span><span>Win32 P/Invoke</span><span>DSP</span><span>HRTF (KEMAR)</span>
+                        </div>
+                    </div>
+
+                    <div class="project-video">
+                        <video controls preload="none" poster="./images/spatialAudio-poster.jpg"
+                               title="SpatialAudio demo — audio follows the focused window">
+                            <source src="./images/spatialAudio.mp4" type="video/mp4">
+                        </video>
+                        <div class="img-tag">Drag windows &rarr; audio follows (captured screen)</div>
+                    </div>
+
+                    <div class="project-body">
+                        <div class="project-text">
+                            <p>A C#/.NET 8 app that turns a multi-monitor desktop into a sound stage: the desktop audio mix is positioned in 3D space based on where the focused window sits. Captures the mix via WASAPI loopback, tracks the focused window across monitors, and spatializes in real time. All code handwritten as a learning project, with AI review; HRTF convolution in progress.</p>
+
+                            <h4>Architecture</h4>
+                            <pre>Focused window on the virtual desktop (multi-monitor)
+  │  Win32: GetForegroundWindow, GetWindowRect,
+  │  monitor union (P/Invoke, per-monitor DPI aware)
+  ▼
+WindowTracker ── azimuth &theta;, distance ──┐
+                                           ▼
+WASAPI loopback capture ── PCM chunks ──► Spatializer (DSP)
+  (48 kHz float stereo)                    ├─ ITD: ring-buffer delay on the
+                                           │        far ear (30·sin|&theta;| samples)
+                                           ├─ ILD: equal-power cos/sin panning
+                                           └─ HRTF: KEMAR IR convolution (M3)
+  ▼
+Output device (feedback-loop safe, headphones)</pre>
+
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Window-following audio</strong> &mdash; azimuth/distance computed from the focused window's rect across the virtual desktop (&plusmn;70&deg; front-arc model); left/right image verified to follow window movement by ear</li>
+                                <li><strong>Duplex-theory spatialization</strong> &mdash; ITD ring-buffer delay line (max 630&nbsp;&micro;s) on the far ear plus equal-power ILD panning with constant perceived loudness</li>
+                                <li><strong>Measured latency</strong> &mdash; synthesized click-train probe reports 2.8 / 29.4 / 55.3 ms (min/avg/max) through the full capture&rarr;spatialize&rarr;render path</li>
+                                <li><strong>HRTF loader (M3, in progress)</strong> &mdash; parses all 1420 raw big-endian MIT KEMAR HRIRs; loader self-verifies against the published dataset values (max sample &minus;26793 &divide; 32768)</li>
+                                <li><strong>Low-level Win32</strong> &mdash; P/Invoke into user32.dll for window/monitor enumeration, per-monitor DPI awareness, asymmetric-monitor virtual desktop union</li>
+                                <li><strong>Feedback-loop safe</strong> &mdash; capture and output devices must differ, so the spatialized mix can't re-enter its own loopback</li>
+                            </ul>
+
+                            <div class="project-links">
+                                <a href="https://github.com/PureChocolate/SpatialAudio" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7496308098668716032" target="_blank"><i class="fab fa-linkedin"></i> Demo post</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VOICE AGENT -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Voice Agent &mdash; Local AI Voice Assistant</h3>
+                        <div class="tech-pills">
+                            <span>Python</span><span>SSE</span><span>WASAPI</span><span>GGUF</span><span>Vulkan</span><span>AMD ROCm</span><span>WSL</span>
                         </div>
                     </div>
 
                     <div class="project-body">
                         <div class="project-preview">
-                            <a href="./images/mouseFlow.png" data-lightbox="projects" data-title="MouseFlow Tracker">
-                                <img src="./images/mouseFlow.png" alt="MouseFlow dashboard">
+                            <a href="./images/VoiceAgentTerminal.png" data-lightbox="projects" data-title="Voice Agent">
+                                <img src="./images/VoiceAgentTerminal.png" alt="Voice Agent terminal">
                             </a>
                         </div>
                         <div class="project-text">
-                            <p>A global mouse tracker that hooks low-level Windows APIs to intercept cursor telemetry across all applications. Renders real-time trajectory paths on a live JavaFX dashboard and displays hovered application names. Designed for UX heatmaps and productivity analysis.</p>
+                            <p>A zero-cloud voice assistant for an AI coding agent. Listens to the agent's reply stream over SSE, synthesizes speech entirely on-device with Fish Audio S2 (GGUF + Vulkan on an AMD GPU) or a Kokoro fast engine, and speaks through your speakers &mdash; no cloud services anywhere in the voice path.</p>
 
                             <h4>Architecture</h4>
-                            <pre>Windows OS
-  │  WH_MOUSE_LL hook (jnativehook)
+                            <pre>opencode (AI coding agent, running in WSL)
+  │  SSE event stream → completed replies
   ▼
-App.java ── Worker thread (40ms pulse)
-  │  ├─ Win32: GetForegroundWindow, WindowFromPoint (JNA)
-  │  ├─ Weighted-pulse CSV logging (5px deadzone + dwell time)
-  │  └─ Platform.runLater → UI updates
+voice_agent.py (Windows Python)
+  ├─ sanitize()   → tables/code → "[table]" / "[code]" cues
+  ├─ split_text() → ≤480-char sentence chunks
+  └─ POST /generate per chunk (prefetch next while playing)
+      ├─ s2.exe (s2.cpp)   → S2 Pro q4_k_m · Vulkan · 7 GB VRAM
+      └─ kokoro_server.py → Kokoro-82M · CPU · ~10× realtime
   ▼
-TrackerUI.java ── JavaFX Application thread
-  │  ├─ Live X/Y, active/hovered window titles
-  │  ├─ Resizable path-trail canvas (multi-monitor normalized)
-  │  └─ Dark dashboard theme
-  ▼
-logs/mouse_log_&lt;ts&gt;.csv</pre>
+WASAPI → speakers (2s pre-buffer, self-healing stream)</pre>
 
                             <h4>Key Features</h4>
                             <ul>
-                                <li><strong>Weighted-pulse logging</strong> — writes CSV rows only on ≥5px movement or window change; accumulates dwell time during idle to minimize disk I/O</li>
-                                <li><strong>Multi-monitor normalization</strong> — computes virtual desktop bounds from all monitors, maps raw hook coords to canvas-relative percentages</li>
-                                <li><strong>Thread isolation</strong> — hook message pump on dedicated worker thread; all UI mutations marshaled via <code>Platform.runLater()</code></li>
-                                <li><strong>Resizable live canvas</strong> — path trail binds to window dimensions, auto-clears on resize</li>
-                            </ul>
-
-                            <h4>Debugging Highlights</h4>
-                            <ul>
-                                <li>Resolved path-trail boundary violations where rendered points drew outside the canvas viewport</li>
-                                <li>Fixed layout overflow in the stats panel causing clipped window titles at narrow widths</li>
-                                <li>Added zero-guards and size-change listeners to prevent null-pointer crashes during window resize</li>
+                                <li><strong>Dual engine</strong> &mdash; S2 for expressive speech with natural-language style and emotion tags, Kokoro for near-instant CPU narration; toggle via <code>engine.conf</code></li>
+                                <li><strong>Zero cloud</strong> &mdash; models run locally on the AMD GPU (Vulkan) or CPU; the only network egress is the coding agent's own API</li>
+                                <li><strong>Voice cloning</strong> &mdash; the assistant speaks with a cloned voice from a 10&ndash;30 second sample</li>
+                                <li><strong>Stutter-free playback</strong> &mdash; the pipeline runs at ~1.5&times; realtime, so replies are synthesized one sentence-chunk at a time with prefetch overlap; tables and code blocks collapse to short spoken cues</li>
+                                <li><strong>Resilient</strong> &mdash; self-healing audio stream survives device changes; single-flight TTS with graceful queueing</li>
+                                <li><strong>Open-source contribution</strong> &mdash; submitted upstream PR #48 to s2.cpp fixing an unqualified <code>max</code> that breaks builds under <code>NOMINMAX</code>; avoided a 16&nbsp;GB RAM OOM by moving from the torch server to a C++/GGML engine</li>
+                                <li><strong>Fully documented</strong> &mdash; changelog of 15 resolved errors with root causes, plus a structured learning path</li>
                             </ul>
 
                             <div class="project-links">
-                                <a href="https://github.com/PureChocolate/mouseflow-tracker" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                                <a href="https://github.com/PureChocolate/opencode-voice-agent" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- TIC-TAC-TOE -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Tic-Tac-Toe &mdash; Interactive Game Widget</h3>
+                        <div class="tech-pills">
+                            <span>JavaScript</span><span>CSS Grid</span><span>Minimax AI</span><span>Cloudflare Workers</span><span>Workers KV</span>
+                        </div>
+                    </div>
+
+                    <div class="project-body">
+                        <div class="project-preview ttt-preview">
+                            <div id="ttt-widget"></div>
+                        </div>
+                        <div class="project-text">
+                            <p>A browser-based tic-tac-toe widget built from scratch with an unbeatable AI opponent and online multiplayer. Features four game modes, immutable state management, a Cloudflare Worker relay with KV persistence, and room-code matchmaking.</p>
+
+                            <h4>Features</h4>
+                            <ul>
+                                <li><strong>Unbeatable AI (Hard)</strong> &mdash; minimax algorithm explores the full game tree for perfect play; Easy mode picks moves at random</li>
+                                <li><strong>Online multiplayer</strong> &mdash; room-code matchmaking via Cloudflare Worker relay with Workers KV for cross-instance state sharing</li>
+                                <li><strong>Session persistence</strong> &mdash; sessionStorage-backed rejoin; refresh or change tabs without losing your game</li>
+                                <li><strong>Four game modes</strong> &mdash; vs AI (Easy), vs AI (Hard), local PvP, and online PvP</li>
+                                <li><strong>State-driven rendering</strong> &mdash; immutable game state with a single render path; DOM always reflects current state</li>
+                                <li><strong>Win line highlighting</strong> &mdash; winning triplet cells get a highlighted background for instant visual feedback</li>
+                            </ul>
+
+                            <h4>Architecture</h4>
+                            <pre>TTTEngine (pure logic, zero DOM)
+  ├─ createGame()    → fresh state object
+  ├─ makeMove()      → immutable move + win/draw detection
+  ├─ checkWin()      → scans 8 win lines against board
+  ├─ getBestMove()   → easy=random, hard=minimax (recursive tree search)
+  └─ minimax()       → +10 / -10 / 0 scoring, in-place mutate & undo
+
+TTTWidget (UI controller)
+  ├─ mount()         → bootstraps widget into DOM container
+  ├─ renderBoard()   → redraws 9 cells from current state
+  ├─ handleClick()   → validates, applies move, triggers AI or POST
+  ├─ updateStatus()  → turn indicator, win/draw messages
+  └─ pollRoom()      → 500ms polling for opponent moves in online mode
+
+Cloudflare Worker (multiplayer relay)
+  ├─ POST /room/create        → generates 4-char room code
+  ├─ POST /room/join/:code    → joins as O, supports X-Player-Mark rejoin
+  ├─ POST /room/:code/move    → validates turn, applies move server-side
+  ├─ GET  /room/:code         → polls current board state
+  └─ POST /room/:code/rematch → resets board, swaps X/O</pre>
                         </div>
                     </div>
                 </div>
@@ -194,6 +296,62 @@ outputs/batch_translation.txt</pre>
                     </div>
                 </div>
 
+                <!-- MOUSEFLOW -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>MouseFlow &mdash; System Telemetry Utility</h3>
+                        <div class="tech-pills">
+                            <span>Java 21</span><span>JNA 5.13</span><span>Win32 API</span><span>JavaFX</span><span>JNativeHook</span>
+                        </div>
+                    </div>
+
+                    <div class="project-body">
+                        <div class="project-preview">
+                            <a href="./images/mouseFlow.png" data-lightbox="projects" data-title="MouseFlow Tracker">
+                                <img src="./images/mouseFlow.png" alt="MouseFlow dashboard">
+                            </a>
+                        </div>
+                        <div class="project-text">
+                            <p>A global mouse tracker that hooks low-level Windows APIs to intercept cursor telemetry across all applications. Renders real-time trajectory paths on a live JavaFX dashboard and displays hovered application names. Designed for UX heatmaps and productivity analysis.</p>
+
+                            <h4>Architecture</h4>
+                            <pre>Windows OS
+  │  WH_MOUSE_LL hook (jnativehook)
+  ▼
+App.java ── Worker thread (40ms pulse)
+  │  ├─ Win32: GetForegroundWindow, WindowFromPoint (JNA)
+  │  ├─ Weighted-pulse CSV logging (5px deadzone + dwell time)
+  │  └─ Platform.runLater → UI updates
+  ▼
+TrackerUI.java ── JavaFX Application thread
+  │  ├─ Live X/Y, active/hovered window titles
+  │  ├─ Resizable path-trail canvas (multi-monitor normalized)
+  │  └─ Dark dashboard theme
+  ▼
+logs/mouse_log_&lt;ts&gt;.csv</pre>
+
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li><strong>Weighted-pulse logging</strong> — writes CSV rows only on ≥5px movement or window change; accumulates dwell time during idle to minimize disk I/O</li>
+                                <li><strong>Multi-monitor normalization</strong> — computes virtual desktop bounds from all monitors, maps raw hook coords to canvas-relative percentages</li>
+                                <li><strong>Thread isolation</strong> — hook message pump on dedicated worker thread; all UI mutations marshaled via <code>Platform.runLater()</code></li>
+                                <li><strong>Resizable live canvas</strong> — path trail binds to window dimensions, auto-clears on resize</li>
+                            </ul>
+
+                            <h4>Debugging Highlights</h4>
+                            <ul>
+                                <li>Resolved path-trail boundary violations where rendered points drew outside the canvas viewport</li>
+                                <li>Fixed layout overflow in the stats panel causing clipped window titles at narrow widths</li>
+                                <li>Added zero-guards and size-change listeners to prevent null-pointer crashes during window resize</li>
+                            </ul>
+
+                            <div class="project-links">
+                                <a href="https://github.com/PureChocolate/mouseflow-tracker" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- DEPLOYBOX -->
                 <div class="project-card">
                     <div class="project-header">
@@ -249,106 +407,7 @@ Container running ✓</pre>
                     </div>
                 </div>
 
-                <!-- TIC-TAC-TOE -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Tic-Tac-Toe &mdash; Interactive Game Widget</h3>
-                        <div class="tech-pills">
-                            <span>JavaScript</span><span>CSS Grid</span><span>Minimax AI</span><span>Cloudflare Workers</span><span>Workers KV</span>
-                        </div>
-                    </div>
-
-                    <div class="project-body">
-                        <div class="project-preview ttt-preview">
-                            <div id="ttt-widget"></div>
-                        </div>
-                        <div class="project-text">
-                            <p>A browser-based tic-tac-toe widget built from scratch with an unbeatable AI opponent and online multiplayer. Features four game modes, immutable state management, a Cloudflare Worker relay with KV persistence, and room-code matchmaking.</p>
-
-                            <h4>Features</h4>
-                            <ul>
-                                <li><strong>Unbeatable AI (Hard)</strong> &mdash; minimax algorithm explores the full game tree for perfect play; Easy mode picks moves at random</li>
-                                <li><strong>Online multiplayer</strong> &mdash; room-code matchmaking via Cloudflare Worker relay with Workers KV for cross-instance state sharing</li>
-                                <li><strong>Session persistence</strong> &mdash; sessionStorage-backed rejoin; refresh or change tabs without losing your game</li>
-                                <li><strong>Four game modes</strong> &mdash; vs AI (Easy), vs AI (Hard), local PvP, and online PvP</li>
-                                <li><strong>State-driven rendering</strong> &mdash; immutable game state with a single render path; DOM always reflects current state</li>
-                                <li><strong>Win line highlighting</strong> &mdash; winning triplet cells get a highlighted background for instant visual feedback</li>
-                            </ul>
-
-                            <h4>Architecture</h4>
-                            <pre>TTTEngine (pure logic, zero DOM)
-  ├─ createGame()    → fresh state object
-  ├─ makeMove()      → immutable move + win/draw detection
-  ├─ checkWin()      → scans 8 win lines against board
-  ├─ getBestMove()   → easy=random, hard=minimax (recursive tree search)
-  └─ minimax()       → +10 / -10 / 0 scoring, in-place mutate & undo
-
-TTTWidget (UI controller)
-  ├─ mount()         → bootstraps widget into DOM container
-  ├─ renderBoard()   → redraws 9 cells from current state
-  ├─ handleClick()   → validates, applies move, triggers AI or POST
-  ├─ updateStatus()  → turn indicator, win/draw messages
-  └─ pollRoom()      → 500ms polling for opponent moves in online mode
-
-Cloudflare Worker (multiplayer relay)
-  ├─ POST /room/create        → generates 4-char room code
-  ├─ POST /room/join/:code    → joins as O, supports X-Player-Mark rejoin
-  ├─ POST /room/:code/move    → validates turn, applies move server-side
-  ├─ GET  /room/:code         → polls current board state
-  └─ POST /room/:code/rematch → resets board, swaps X/O</pre>
-                        </div>
-                    </div>
                 </div>
-
-                <!-- VOICE AGENT -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Voice Agent &mdash; Local AI Voice Assistant</h3>
-                        <div class="tech-pills">
-                            <span>Python</span><span>SSE</span><span>WASAPI</span><span>GGUF</span><span>Vulkan</span><span>AMD ROCm</span><span>WSL</span>
-                        </div>
-                    </div>
-
-                    <div class="project-body">
-                        <div class="project-preview">
-                            <a href="./images/VoiceAgentTerminal.png" data-lightbox="projects" data-title="Voice Agent">
-                                <img src="./images/VoiceAgentTerminal.png" alt="Voice Agent terminal">
-                            </a>
-                        </div>
-                        <div class="project-text">
-                            <p>A zero-cloud voice assistant for an AI coding agent. Listens to the agent's reply stream over SSE, synthesizes speech entirely on-device with Fish Audio S2 (GGUF + Vulkan on an AMD GPU) or a Kokoro fast engine, and speaks through your speakers &mdash; no cloud services anywhere in the voice path.</p>
-
-                            <h4>Architecture</h4>
-                            <pre>opencode (AI coding agent, running in WSL)
-  │  SSE event stream → completed replies
-  ▼
-voice_agent.py (Windows Python)
-  ├─ sanitize()   → tables/code → "[table]" / "[code]" cues
-  ├─ split_text() → ≤480-char sentence chunks
-  └─ POST /generate per chunk (prefetch next while playing)
-      ├─ s2.exe (s2.cpp)   → S2 Pro q4_k_m · Vulkan · 7 GB VRAM
-      └─ kokoro_server.py → Kokoro-82M · CPU · ~10× realtime
-  ▼
-WASAPI → speakers (2s pre-buffer, self-healing stream)</pre>
-
-                            <h4>Key Features</h4>
-                            <ul>
-                                <li><strong>Dual engine</strong> &mdash; S2 for expressive speech with natural-language style and emotion tags, Kokoro for near-instant CPU narration; toggle via <code>engine.conf</code></li>
-                                <li><strong>Zero cloud</strong> &mdash; models run locally on the AMD GPU (Vulkan) or CPU; the only network egress is the coding agent's own API</li>
-                                <li><strong>Voice cloning</strong> &mdash; the assistant speaks with a cloned voice from a 10&ndash;30 second sample</li>
-                                <li><strong>Stutter-free playback</strong> &mdash; the pipeline runs at ~1.5&times; realtime, so replies are synthesized one sentence-chunk at a time with prefetch overlap; tables and code blocks collapse to short spoken cues</li>
-                                <li><strong>Resilient</strong> &mdash; self-healing audio stream survives device changes; single-flight TTS with graceful queueing</li>
-                                <li><strong>Fully documented</strong> &mdash; changelog of 15 resolved errors with root causes, plus a structured learning path</li>
-                            </ul>
-
-                            <div class="project-links">
-                                <a href="https://github.com/PureChocolate/opencode-voice-agent" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </section>
 
         <section id="experience">
