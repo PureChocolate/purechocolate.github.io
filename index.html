@@ -15,6 +15,90 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/tictactoe.css">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    <link rel="canonical" href="https://gurkirat.net/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gurkirat Singh",
+      "url": "https://gurkirat.net/",
+      "email": "mailto:singh@gurkirat.net",
+      "jobTitle": "Software Engineer",
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Western Washington University" },
+      "sameAs": [
+        "https://github.com/PureChocolate",
+        "https://www.linkedin.com/in/gurkirat-singh01"
+      ],
+      "knowsAbout": [
+        "C#", ".NET", "audio DSP", "Windows APIs", "Java", "Apache Kafka", "PostgreSQL",
+        "embedded C++", "RP2350", "local LLM inference", "software testing"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "SpatialAudio — Desktop Audio Spatializer",
+          "description": "C#/.NET 8 Windows app that spatializes the desktop audio mix by the focused window's position: WASAPI loopback capture, Win32 window tracking, and a DSP chain built from scratch (split-complex FFT, overlap-add KEMAR HRTF convolution, azimuth crossfades).",
+          "codeRepository": "https://github.com/PureChocolate/SpatialAudio",
+          "programmingLanguage": "C#",
+          "author": { "@type": "Person", "name": "Gurkirat Singh" }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "PicoTelemetry — Bare-Metal Telemetry Dashboard",
+          "description": "RP2350 (Pico 2) firmware in C++ driving an ST7789 LCD over SPI with a from-scratch display driver and a custom binary serial protocol with CRC-16 framing.",
+          "codeRepository": "https://github.com/PureChocolate/PicoTelemetry",
+          "programmingLanguage": "C++",
+          "author": { "@type": "Person", "name": "Gurkirat Singh" }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "MouseFlow — Telemetry Capture",
+          "description": "Java 21 desktop telemetry app hooking low-level Windows input at under 1% CPU, with a Kafka/Postgres pipeline in progress.",
+          "codeRepository": "https://github.com/PureChocolate/mouseflow-tracker",
+          "programmingLanguage": "Java",
+          "author": { "@type": "Person", "name": "Gurkirat Singh" }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "Voice Agent — Local AI Voice Assistant",
+          "description": "Zero-cloud voice assistant for a coding agent: SSE replies stream into on-device TTS (S2 Pro via Vulkan/GGUF or Kokoro on CPU) with stutter-free chunked playback.",
+          "codeRepository": "https://github.com/PureChocolate/opencode-voice-agent",
+          "programmingLanguage": "Python",
+          "author": { "@type": "Person", "name": "Gurkirat Singh" }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "Tic-Tac-Toe — Serverless Multiplayer Widget",
+          "description": "Browser game with an unbeatable minimax opponent and online multiplayer relayed through a Cloudflare Worker with Workers KV state.",
+          "codeRepository": "https://github.com/PureChocolate/purechocolate.github.io",
+          "programmingLanguage": "JavaScript",
+          "author": { "@type": "Person", "name": "Gurkirat Singh" }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "OCR Translate — Local AI Translation Pipeline",
+          "description": "Fully local two-stage AI pipeline: Qwen3-VL reads Japanese text from raw comic pages and TranslateGemma translates it, all on-device via Ollama.",
+          "codeRepository": "https://github.com/PureChocolate/ocrTranslate",
+          "programmingLanguage": "Python",
+          "author": { "@type": "Person", "name": "Gurkirat Singh" }
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "name": "DeployBox — Single-Command Docker Runner",
+          "description": "Go CLI that detects a project's stack, generates a multi-stage Dockerfile, and builds and runs the container with one command.",
+          "codeRepository": "https://github.com/PureChocolate/deploybox",
+          "programmingLanguage": "Go",
+          "author": { "@type": "Person", "name": "Gurkirat Singh" }
+        }
+      ]
+    }
+    </script>
 </head>
 <body id="top">
 
