@@ -1,19 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
+    /* ---------- back to top ---------- */
     const backToTopButton = document.getElementById('back-to-top');
-
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 400) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
+        backToTopButton.classList.toggle('show', window.pageYOffset > 400);
+    }, { passive: true });
 
+    /* ---------- nav active section ---------- */
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('#navbar .nav-links a');
-
-    window.addEventListener('scroll', navHighlighter);
 
     function navHighlighter() {
         let currentSection = '';
@@ -21,35 +16,101 @@ document.addEventListener('DOMContentLoaded', function() {
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 80;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                currentSection = sectionId;
-            } else if (scrollY + window.innerHeight >= document.documentElement.scrollHeight && sectionId === sections[sections.length - 1].id) {
-                currentSection = sectionId;
+            if (scrollY >= sectionTop && scrollY < sectionTop + section.offsetHeight) {
+                currentSection = section.getAttribute('id');
+            } else if (scrollY + window.innerHeight >= document.documentElement.scrollHeight
+                       && section === sections[sections.length - 1]) {
+                currentSection = section.getAttribute('id');
             }
         });
 
         navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === currentSection) {
-                link.classList.add('active');
-            }
+            link.classList.toggle('active', link.getAttribute('href').substring(1) === currentSection);
         });
-
-        if (currentSection === '' && scrollY < sections[0].offsetTop - 80) {
-            if (navLinks.length > 0 && navLinks[0].getAttribute('href') === '#about') {
-                navLinks[0].classList.add('active');
-            }
-        }
     }
 
+    window.addEventListener('scroll', navHighlighter, { passive: true });
     navHighlighter();
+
+    /* ---------- reveal on scroll ---------- */
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealEls = document.querySelectorAll('.reveal');
+
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+        revealEls.forEach(el => el.classList.add('in'));
+    } else {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        revealEls.forEach(el => observer.observe(el));
+    }
+
+    /* ---------- project filters ---------- */
+    const chips = document.querySelectorAll('.filters .chip');
+    const cards = document.querySelectorAll('.project-card');
+    const groupHeadings = document.querySelectorAll('.group-heading');
+
+    chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const filter = chip.dataset.filter;
+            chips.forEach(c => c.classList.toggle('active', c === chip));
+
+            cards.forEach(card => {
+                const show = filter === 'all' || card.dataset.pillar === filter;
+                card.style.display = show ? '' : 'none';
+            });
+
+            // hide a group heading when all of its cards are filtered out
+            groupHeadings.forEach(heading => {
+                let sibling = heading.nextElementSibling;
+                let anyVisible = false;
+                while (sibling && !sibling.classList.contains('group-heading')) {
+                    if (sibling.classList.contains('project-card')
+                        && sibling.style.display !== 'none') {
+                        anyVisible = true;
+                        break;
+                    }
+                    sibling = sibling.nextElementSibling;
+                }
+                heading.style.display = anyVisible ? '' : 'none';
+            });
+        });
+    });
+
+    /* ---------- lightbox ---------- */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxCaption = lightbox.querySelector('.lb-caption');
+
+    document.querySelectorAll('.lightbox-link').forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            lightboxImg.src = link.getAttribute('href');
+            lightboxImg.alt = link.dataset.caption || '';
+            lightboxCaption.textContent = link.dataset.caption || '';
+            lightbox.showModal();
+        });
+    });
+
+    lightbox.querySelector('.lb-close').addEventListener('click', () => lightbox.close());
+    lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) lightbox.close();
+    });
+
 });
+
+/* ============================================================
+   OCR Translate live demo (home server via Cloudflare tunnel)
+   ============================================================ */
 
 async function checkStatus() {
     const badge = document.getElementById('ocr-status');
+    if (!badge) return;
     try {
         const res = await fetch('https://ocr.gurkirat.net/api/health', { method: 'GET', signal: AbortSignal.timeout(10000) });
         if (res.ok) {

@@ -3,428 +3,575 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gurkirat Singh — Software Engineer</title>
+    <title>Gurkirat Singh — Systems Software Engineer</title>
+    <meta name="description" content="Systems-focused software engineer in Washington. C#/.NET audio DSP, Java telemetry, RP2350 bare-metal firmware, and local AI pipelines — documented end to end.">
+    <meta property="og:title" content="Gurkirat Singh — Systems Software Engineer">
+    <meta property="og:description" content="C#/.NET audio DSP, Java telemetry, RP2350 firmware, and local AI pipelines — documented end to end.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gurkirat.net">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/tictactoe.css">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 </head>
 <body id="top">
 
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <nav id="navbar">
         <div class="nav-inner">
             <a href="#top" class="nav-brand">GS</a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#now">Now</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
             </ul>
         </div>
     </nav>
 
     <header id="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">Software Engineer &mdash; Washington, US</p>
+            <p class="hero-eyebrow">Systems Software — Washington, US</p>
             <h1>Gurkirat Singh</h1>
-            <p class="hero-tagline">B.S. in Math &amp; CS from Western Washington University. I build across the stack: low-level Windows systems (Java, C#), local GPU AI pipelines (Python), and web apps (JavaScript, Cloudflare Workers), writing every line myself with AI agents as reviewers and debuggers. Strong testing mindset from a QA/accessibility background.</p>
+            <p class="hero-tagline">B.S. Mathematics &amp; Computer Science. I build low-level Windows systems in C# and Java, bare-metal firmware in C++ on the RP2350, and I am wiring a Kafka/Postgres data pipeline next. Every project is documented end to end: architecture, measured results, and the bugs I fixed along the way.</p>
+            <div class="hero-status">
+                <span class="dot" aria-hidden="true"></span>
+                <span>MouseFlow pipeline &middot; PicoTelemetry protocol &middot; SpatialAudio visualizer</span>
+            </div>
             <div class="hero-links">
-                <a href="mailto:singh@gurkirat.net" class="hero-link"><i class="fas fa-envelope"></i> singh@gurkirat.net</a>
-                <a href="https://github.com/PureChocolate" target="_blank" class="hero-link"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/gurkirat-singh01" target="_blank" class="hero-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:singh@gurkirat.net" class="hero-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                    singh@gurkirat.net</a>
+                <a href="https://github.com/PureChocolate" target="_blank" rel="noopener" class="hero-link">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                    GitHub</a>
+                <a href="https://www.linkedin.com/in/gurkirat-singh01" target="_blank" rel="noopener" class="hero-link">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+                    LinkedIn</a>
             </div>
         </div>
     </header>
 
-    <main>
-        <section id="about">
-            <div class="section-content">
-                <h2>About</h2>
-                <p>Software engineer with a B.S. in Mathematics &amp; Computer Science from Western Washington University. My projects span low-level Windows systems (Java, C#, Win32, audio DSP), fully local AI pipelines (Python, Ollama, GGUF/Vulkan on an AMD GPU), and web (JavaScript, Cloudflare Workers). I write every line of code myself; AI agents review, debug, and accelerate, and I can explain each line I ship. An accessibility (WCAG) QA internship taught me to build with testing in mind. Seeking an entry-level or junior software engineering role in Washington state or US-remote.</p>
-            </div>
-        </section>
+    <main id="main">
 
-        <section id="skills">
+        <!-- ================= NOW ================= -->
+        <section id="now" class="reveal">
             <div class="section-content">
-                <h2>Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-code"></i> Languages</h4>
-                        <p>Java, JavaScript, Python, Go, React, Node.js, HTML/CSS</p>
+                <h2>Now</h2>
+                <p class="section-sub">updated September 2026</p>
+                <div class="now-list">
+                    <div class="now-item">
+                        <span class="project-name">PicoTelemetry</span>
+                        <span class="now-what">M2.1 — serial byte-pipe between host mock and RP2350 firmware, then framebuffer + font.</span>
                     </div>
-                    <div class="skill-category">
-                        <h4><i class="fas fa-database"></i> Databases &amp; Web</h4>
-                        <p>SQL (MySQL, JDBC), MongoDB, REST APIs, HTTP, Express, Docker</p>
+                    <div class="now-item">
+                        <span class="project-name">MouseFlow</span>
+                        <span class="now-what">M3 — Kafka ingest to Postgres warehouse via Docker Compose, then clustering and heatmap output.</span>
                     </div>
-                    <div class="skill-category">
-                        <h4><i class="fas fa-microchip"></i> AI &amp; Systems</h4>
-                        <p>Local LLM/TTS inference (GGUF, Vulkan on AMD GPU, Ollama), SSE streaming, audio DSP, Cloudflare Workers, Workers KV</p>
+                    <div class="now-item">
+                        <span class="project-name">SpatialAudio</span>
+                        <span class="now-what">M3.5 — visualizer + telemetry interface for the DSP engine.</span>
                     </div>
-                    <div class="skill-category">
-                        <h4><i class="fas fa-check-circle"></i> Testing &amp; Tools</h4>
-                        <p>JUnit, Playwright, Git, Agile/Scrum, Jira, Confluence</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4><i class="fas fa-graduation-cap"></i> CS Fundamentals</h4>
-                        <p>Data structures, algorithms, software design, OOP</p>
-                    </div>
+                </div>
+                <div class="now-foot">
+                    <span>Latest demo:</span>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7496308098668716032" target="_blank" rel="noopener">SpatialAudio on LinkedIn</a>
+                    <span>&middot;</span>
+                    <a href="https://github.com/PureChocolate" target="_blank" rel="noopener">All repos on GitHub</a>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
+        <!-- ================= PILLARS ================= -->
+        <section id="pillars-section" class="reveal">
+            <div class="section-content">
+                <h2>What I build</h2>
+                <p class="section-sub">three lanes, one through-line: systems that are measured, not just shipped</p>
+                <div class="pillars">
+                    <div class="pillar-card">
+                        <span class="pillar-icon">01 / DESKTOP</span>
+                        <h3>Desktop systems in C#</h3>
+                        <p>Win32 interop, WASAPI audio, and real-time DSP written from scratch: split-complex FFT, overlap-add convolution, and HRTF spatialization with measured latency.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <span class="pillar-icon">02 / EMBEDDED</span>
+                        <h3>Bare-metal in C++</h3>
+                        <p>RP2350 firmware on the Pico SDK: SPI display driver built from the datasheet, custom binary serial protocol with CRC framing, and fault-tolerant fallbacks.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <span class="pillar-icon">03 / DATA</span>
+                        <h3>Data &amp; infrastructure</h3>
+                        <p>Java telemetry capture at under 1% CPU, and the pipeline being built next: Kafka ingest into a Postgres warehouse with Docker Compose and clustering analysis.</p>
+                    </div>
+                </div>
+                <p class="ai-note"><strong>AI-native workflow:</strong> local LLM/TTS inference, with AI agents as reviewers and debuggers. My systems projects are written by me line by line; AI-assisted demos are labeled as such in Labs.</p>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS ================= -->
+        <section id="projects" class="reveal">
             <div class="section-content">
                 <h2>Projects</h2>
+                <p class="section-sub">filter by lane</p>
+
+                <div class="filters" role="group" aria-label="Filter projects by lane">
+                    <button class="chip active" data-filter="all" type="button">All</button>
+                    <button class="chip" data-filter="systems" type="button">Systems</button>
+                    <button class="chip" data-filter="embedded" type="button">Embedded</button>
+                    <button class="chip" data-filter="data" type="button">Data</button>
+                    <button class="chip" data-filter="ai" type="button">AI</button>
+                    <button class="chip" data-filter="web" type="button">Web</button>
+                </div>
+
+                <h3 class="group-heading" data-group="active">Active builds</h3>
 
                 <!-- SPATIAL AUDIO -->
-                <div class="project-card">
+                <article class="project-card" data-pillar="systems">
                     <div class="project-header">
-                        <h3>SpatialAudio &mdash; Desktop Audio Spatializer</h3>
-                        <div class="tech-pills">
-                            <span>C# / .NET 8</span><span>NAudio</span><span>WASAPI</span><span>Win32 P/Invoke</span><span>DSP</span><span>HRTF (KEMAR)</span>
-                        </div>
+                        <h3>SpatialAudio — Desktop Audio Spatializer</h3>
+                        <span class="status shipped">shipped</span>
                     </div>
+                    <div class="project-meta">
+                        <span class="pillar">systems</span>
+                        <span class="sep">·</span>
+                        <span>C# / .NET 8</span>
+                        <span class="sep">·</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="project-summary">A C#/.NET 8 app that turns a multi-monitor desktop into a sound stage: the desktop audio mix is positioned in 3D space by the focused window's position. Capture, DSP, and window tracking all run on the real-time path, and the DSP chain is covered by tests in CI.</p>
 
                     <div class="project-video">
                         <video controls preload="none" poster="./images/spatialAudio-poster.jpg"
                                title="SpatialAudio demo — audio follows the focused window">
                             <source src="./images/spatialAudio.mp4" type="video/mp4">
                         </video>
-                        <div class="img-tag">Drag windows &rarr; audio follows (captured screen)</div>
+                        <div class="img-tag">drag windows → audio follows (captured screen)</div>
                     </div>
 
                     <div class="project-body">
                         <div class="project-text">
-                            <p>A C#/.NET 8 app that turns a multi-monitor desktop into a sound stage: the desktop audio mix is positioned in 3D space based on where the focused window sits. Captures the mix via WASAPI loopback, tracks the focused window across monitors, and spatializes in real time. All code handwritten as a learning project, with AI review; HRTF convolution in progress.</p>
-
-                            <h4>Architecture</h4>
-                            <pre>Focused window on the virtual desktop (multi-monitor)
+                            <details open>
+                                <summary>Architecture</summary>
+<pre>Focused window on the virtual desktop (multi-monitor)
   │  Win32: GetForegroundWindow, GetWindowRect,
   │  monitor union (P/Invoke, per-monitor DPI aware)
   ▼
-WindowTracker ── azimuth &theta;, distance ──┐
-                                           ▼
+WindowTracker ── azimuth θ, distance ──┐
+                                      ▼
 WASAPI loopback capture ── PCM chunks ──► Spatializer (DSP)
-  (48 kHz float stereo)                    ├─ ITD: ring-buffer delay on the
-                                           │        far ear (30·sin|&theta;| samples)
-                                           ├─ ILD: equal-power cos/sin panning
-                                           └─ HRTF: KEMAR IR convolution (M3)
+  (48 kHz float stereo)                    ├ ITD: ring-buffer delay, far ear (max 630 µs)
+                                           ├ ILD: equal-power cos/sin panning
+                                           └ HRTF: 72-direction KEMAR table
+                                                · split-complex FFT (from scratch)
+                                                · overlap-add convolution
+                                                · azimuth crossfade + smoothing
   ▼
 Output device (feedback-loop safe, headphones)</pre>
+                            </details>
 
-                            <h4>Key Features</h4>
-                            <ul>
-                                <li><strong>Window-following audio</strong>: azimuth/distance computed from the focused window's rect across the virtual desktop (&plusmn;70&deg; front-arc model); left/right image verified to follow window movement by ear</li>
-                                <li><strong>Duplex-theory spatialization</strong>: ITD ring-buffer delay line (max 630&nbsp;&micro;s) on the far ear plus equal-power ILD panning with constant perceived loudness</li>
-                                <li><strong>Measured latency</strong>: synthesized click-train probe reports 2.8 / 29.4 / 55.3 ms (min/avg/max) through the full capture&rarr;spatialize&rarr;render path</li>
-                                <li><strong>HRTF loader (M3, in progress)</strong>: parses all 1420 raw big-endian MIT KEMAR HRIRs; loader self-verifies against the published dataset values (max sample &minus;26793 &divide; 32768)</li>
-                                <li><strong>Low-level Win32</strong>: P/Invoke into user32.dll for window/monitor enumeration, per-monitor DPI awareness, asymmetric-monitor virtual desktop union</li>
-                                <li><strong>Feedback-loop safe</strong>: capture and output devices must differ, so the spatialized mix can't re-enter its own loopback</li>
-                            </ul>
+                            <details>
+                                <summary>Key features</summary>
+                                <ul>
+                                    <li><strong>Window-following audio</strong>: azimuth and distance computed from the focused window's rect across the virtual desktop (±70° front-arc model)</li>
+                                    <li><strong>DSP from scratch</strong>: split-complex FFT verified against a direct DFT (N=512, max difference 1.5e-5), overlap-add HRTF convolution, and per-window azimuth filter crossfades</li>
+                                    <li><strong>HRTF</strong>: 72-direction KEMAR table; all 1420 raw HRIRs parsed and self-verified, resampled 44.1 → 48 kHz</li>
+                                    <li><strong>Measured latency</strong>: 2.8 / 29.4 / 55.3 ms (min/avg/max) end to end through the capture → spatialize → render path</li>
+                                    <li><strong>Tested</strong>: xUnit DSP suite running on GitHub Actions CI</li>
+                                    <li><strong>Low-level Win32</strong>: P/Invoke into user32.dll, per-monitor DPI awareness, asymmetric-monitor virtual desktop union</li>
+                                    <li><strong>Feedback-loop safe</strong>: capture and output devices must differ, so the mix cannot re-enter its own loopback</li>
+                                </ul>
+                            </details>
+
+                            <details>
+                                <summary>Next</summary>
+                                <p>Visualizer + telemetry interface (M3.5), then elevation and HRTF naturalness work.</p>
+                            </details>
 
                             <div class="project-links">
-                                <a href="https://github.com/PureChocolate/SpatialAudio" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-                                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7496308098668716032" target="_blank"><i class="fab fa-linkedin"></i> Demo post</a>
+                                <a href="https://github.com/PureChocolate/SpatialAudio" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                                    View on GitHub</a>
+                                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7496308098668716032" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5"/></svg>
+                                    Demo post</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- VOICE AGENT -->
-                <div class="project-card">
+                <!-- PICOTELEMETRY -->
+                <article class="project-card" data-pillar="embedded">
                     <div class="project-header">
-                        <h3>Voice Agent &mdash; Local AI Voice Assistant</h3>
-                        <div class="tech-pills">
-                            <span>Python</span><span>SSE</span><span>WASAPI</span><span>GGUF</span><span>Vulkan</span><span>AMD ROCm</span><span>WSL</span>
+                        <h3>PicoTelemetry — Bare-Metal Telemetry Dashboard</h3>
+                        <span class="status wip">in progress</span>
+                    </div>
+                    <div class="project-meta">
+                        <span class="pillar">embedded</span>
+                        <span class="sep">·</span>
+                        <span>C++ / RP2350</span>
+                        <span class="sep">·</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="project-summary">A bare-metal telemetry dashboard: an RP2350 (Pico 2) drives a 1.14-inch ST7789 LCD over SPI with a display driver written from scratch, fed by a PC telemetry stream over USB serial. Protocol v1 is frozen, hardware and simulation both verified, and the next milestone is the live byte pipe between host and firmware.</p>
+
+                    <div class="project-body">
+                        <div class="project-text">
+                            <details open>
+                                <summary>Architecture</summary>
+<pre>PC host (Python mock → C# later)
+  │  USB serial, frozen frame format:
+  │  [AA 55][ver][type][seq u16][len u16][payload][crc16]
+  ▼
+RP2350 firmware (C++, Pico SDK)
+  ├ frame parser + CRC-16/CCITT-FALSE + resync
+  ├ dashboard state machine
+  └ fallback: no valid frame in 2 s →
+       passive mode (onboard temp + LINK LOST)
+  ▼
+ST7789 1.14" LCD (240×135 visible window, SPI @ 10 MHz)</pre>
+                            </details>
+
+                            <details>
+                                <summary>Key features</summary>
+                                <ul>
+                                    <li><strong>Driver from scratch</strong>: init sequence, gamma tables, MADCTL, and the panel's real RAM window (the visible area sits at x 0x28–0x117, y 0x35–0xBB inside the 240×320 die — writing 0–239/0–134 shows nothing)</li>
+                                    <li><strong>Frozen protocol v1</strong>: frame layout documented, CRC-16/CCITT-FALSE with known ground truth, resync on bad frames, ~1.3 KB/s cadence budget</li>
+                                    <li><strong>Fault tolerance</strong>: a 2-second link timeout drops the dashboard into a passive mode showing onboard temperature + LINK LOST</li>
+                                    <li><strong>Sim before hardware</strong>: Wokwi RP2040 + ILI9341 stand-in for logic; the physical Waveshare panel is the source of truth</li>
+                                    <li><strong>Learning in public</strong>: C++ written by me from the SDK up as a deliberate learning project (no MicroPython in the shipped firmware)</li>
+                                </ul>
+                            </details>
+
+                            <details>
+                                <summary>Next</summary>
+                                <p>M2.1 serial byte-pipe + host mock → framebuffer and font → dashboard v1 → real host integration → Cloudflare edge pipeline feeding live stats to this site.</p>
+                            </details>
+
+                            <div class="project-links">
+                                <a href="https://github.com/PureChocolate/PicoTelemetry" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                                    View on GitHub</a>
+                            </div>
                         </div>
                     </div>
+                </article>
+
+                <!-- MOUSEFLOW -->
+                <article class="project-card" data-pillar="data">
+                    <div class="project-header">
+                        <h3>MouseFlow — Telemetry Capture → Pipeline</h3>
+                        <span class="status wip">in progress</span>
+                    </div>
+                    <div class="project-meta">
+                        <span class="pillar">data</span>
+                        <span class="sep">·</span>
+                        <span>Java 21</span>
+                        <span class="sep">·</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="project-summary">A Java desktop app that hooks low-level Windows input and streams cursor telemetry onto a live dashboard, staying under 1% CPU. The capture layer is complete; the next milestone turns it into an enterprise-style pipeline: Kafka ingest to a Postgres warehouse, then spatial clustering for heatmap output.</p>
 
                     <div class="project-body">
                         <div class="project-preview">
-                            <a href="./images/VoiceAgentTerminal.png" data-lightbox="projects" data-title="Voice Agent">
-                                <img src="./images/VoiceAgentTerminal.png" alt="Voice Agent terminal">
+                            <a href="./images/mouseFlow.png" class="lightbox-link" data-caption="MouseFlow dashboard — live cursor path trail">
+                                <img src="./images/mouseFlow.png" alt="MouseFlow dashboard screenshot" loading="lazy">
+                            </a>
+                            <div class="img-caption">live path trail (click to enlarge)</div>
+                        </div>
+                        <div class="project-text">
+                            <details open>
+                                <summary>Architecture</summary>
+<pre>Windows OS
+  │  WH_MOUSE_LL hook (JNativeHook)
+  ▼
+Capture worker (40 ms pulse)
+  ├ Win32: GetForegroundWindow, WindowFromPoint (JNA)
+  ├ weighted-pulse CSV logging (5 px dead zone + dwell)
+  └ Platform.runLater → UI updates
+  ▼
+JavaFX dashboard (thread-isolated)
+  ├ live X/Y + active/hovered window titles
+  └ resizable path-trail canvas (multi-monitor normalized)
+
+[ M3 pipeline — in progress ]
+  CSV writer → Kafka producer → Postgres consumer
+  → DBSCAN / K-Means clustering (10–20 px jitter)
+  → heatmap output · Docker Compose</pre>
+                            </details>
+
+                            <details>
+                                <summary>Capture features</summary>
+                                <ul>
+                                    <li><strong>Weighted-pulse logging</strong>: writes CSV rows only on ≥5 px movement or a window change; accumulates dwell time while idle to minimize disk I/O</li>
+                                    <li><strong>Multi-monitor normalization</strong>: computes virtual desktop bounds from all monitors and maps raw hook coordinates to canvas percentages</li>
+                                    <li><strong>Thread isolation</strong>: hook message pump on a dedicated worker; all UI mutations marshaled through <code>Platform.runLater()</code></li>
+                                </ul>
+                            </details>
+
+                            <details>
+                                <summary>Roadmap (M3)</summary>
+                                <ul>
+                                    <li>Kafka producer replacing the CSV writer (event schema first)</li>
+                                    <li>Postgres warehouse consumer with warehouse tables</li>
+                                    <li>DBSCAN / K-Means clustering to heatmap output</li>
+                                    <li>Docker Compose for the whole stack</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/PureChocolate/mouseflow-tracker" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                            View on GitHub</a>
+                    </div>
+                </article>
+
+                <h3 class="group-heading" data-group="labs">Labs &amp; demos</h3>
+
+                <!-- VOICE AGENT -->
+                <article class="project-card" data-pillar="ai">
+                    <div class="project-header">
+                        <h3>Voice Agent — Local AI Voice Assistant</h3>
+                        <span class="status lab">lab · AI-assisted</span>
+                    </div>
+                    <div class="project-meta">
+                        <span class="pillar">ai</span>
+                        <span class="sep">·</span>
+                        <span>Python + C++ engines</span>
+                        <span class="sep">·</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="project-summary">A zero-cloud voice assistant for a coding agent: SSE replies stream into on-device TTS (S2 Pro on GPU via Vulkan/GGUF, or Kokoro on CPU) with stutter-free chunked playback. Built during an AI-assisted sprint to explore agentic workflows; the architecture is documented and the upstream fix is real code I debugged.</p>
+
+                    <div class="project-body">
+                        <div class="project-preview">
+                            <a href="./images/VoiceAgentTerminal.png" class="lightbox-link" data-caption="Voice Agent — terminal session">
+                                <img src="./images/VoiceAgentTerminal.png" alt="Voice Agent terminal session" loading="lazy">
                             </a>
                         </div>
                         <div class="project-text">
-                            <p>A zero-cloud voice assistant for an AI coding agent. Listens to the agent's reply stream over SSE, synthesizes speech entirely on-device with Fish Audio S2 (GGUF + Vulkan on an AMD GPU) or a Kokoro fast engine, and speaks through your speakers with no cloud services anywhere in the voice path.</p>
-
-                            <h4>Architecture</h4>
-                            <pre>opencode (AI coding agent, running in WSL)
+                            <details open>
+                                <summary>Architecture</summary>
+<pre>opencode (AI coding agent, in WSL)
   │  SSE event stream → completed replies
   ▼
-voice_agent.py (Windows Python)
-  ├─ sanitize()   → tables/code → "[table]" / "[code]" cues
-  ├─ split_text() → ≤480-char sentence chunks
-  └─ POST /generate per chunk (prefetch next while playing)
-      ├─ s2.exe (s2.cpp)   → S2 Pro q4_k_m · Vulkan · 7 GB VRAM
-      └─ kokoro_server.py → Kokoro-82M · CPU · ~10× realtime
+voice_agent.py (Windows)
+  ├ sanitize()   → tables/code → "[table]" / "[code]"
+  ├ split_text() → ≤480-char sentence chunks
+  └ POST /generate per chunk (prefetch next while playing)
+      ├ s2.exe (s2.cpp)   → S2 Pro · Vulkan · 7 GB VRAM
+      └ kokoro_server.py → Kokoro-82M · CPU · ~10× realtime
   ▼
-WASAPI → speakers (2s pre-buffer, self-healing stream)</pre>
+WASAPI → speakers (2 s pre-buffer, self-healing stream)</pre>
+                            </details>
 
-                            <h4>Key Features</h4>
-                            <ul>
-                                <li><strong>Dual engine</strong>: S2 for expressive speech with natural-language style and emotion tags, Kokoro for near-instant CPU narration; toggle via <code>engine.conf</code></li>
-                                <li><strong>Zero cloud</strong>: models run locally on the AMD GPU (Vulkan) or CPU; the only network egress is the coding agent's own API</li>
-                                <li><strong>Voice cloning</strong>: the assistant speaks with a cloned voice from a 10&ndash;30 second sample</li>
-                                <li><strong>Stutter-free playback</strong>: the pipeline runs at ~1.5&times; realtime, so replies are synthesized one sentence-chunk at a time with prefetch overlap; tables and code blocks collapse to short spoken cues</li>
-                                <li><strong>Resilient</strong>: self-healing audio stream survives device changes; single-flight TTS with graceful queueing</li>
-                                <li><strong>Open-source contribution</strong>: submitted upstream PR #48 to s2.cpp fixing an unqualified <code>max</code> that breaks builds under <code>NOMINMAX</code>; avoided a 16&nbsp;GB RAM OOM by moving from the torch server to a C++/GGML engine</li>
-                                <li><strong>Fully documented</strong>: changelog of 15 resolved errors with root causes, plus a structured learning path</li>
-                            </ul>
+                            <details>
+                                <summary>Key features</summary>
+                                <ul>
+                                    <li><strong>Dual engine</strong>: S2 for expressive speech with style tags, Kokoro for near-instant CPU narration; toggle via config</li>
+                                    <li><strong>Zero cloud</strong>: models run locally; the only network egress is the coding agent's own API</li>
+                                    <li><strong>Stutter-free playback</strong>: synthesized chunk-by-chunk with prefetch overlap; tables and code collapse to spoken cues</li>
+                                    <li><strong>Upstream contribution</strong>: PR #48 to s2.cpp — an unqualified <code>max</code> breaks builds under <code>NOMINMAX</code>; also avoided a 16 GB RAM OOM by moving to the C++/GGML engine</li>
+                                </ul>
+                            </details>
 
                             <div class="project-links">
-                                <a href="https://github.com/PureChocolate/opencode-voice-agent" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                                <a href="https://github.com/PureChocolate/opencode-voice-agent" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                                    View on GitHub</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-            <!-- TIC-TAC-TOE -->
-                <div class="project-card">
+                <!-- TIC-TAC-TOE -->
+                <article class="project-card" data-pillar="web">
                     <div class="project-header">
-                        <h3>Tic-Tac-Toe &mdash; Interactive Game Widget</h3>
-                        <div class="tech-pills">
-                            <span>JavaScript</span><span>CSS Grid</span><span>Minimax AI</span><span>Cloudflare Workers</span><span>Workers KV</span>
-                        </div>
+                        <h3>Tic-Tac-Toe — Serverless Multiplayer Widget</h3>
+                        <span class="status lab">lab · playable</span>
                     </div>
+                    <div class="project-meta">
+                        <span class="pillar">web</span>
+                        <span class="sep">·</span>
+                        <span>JavaScript + Cloudflare Workers</span>
+                        <span class="sep">·</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="project-summary">A playable tic-tac-toe widget built from scratch: an unbeatable minimax opponent plus online multiplayer relayed through a Cloudflare Worker with KV state, room codes, and rejoin support. Try it right here.</p>
 
                     <div class="project-body">
                         <div class="project-preview ttt-preview">
                             <div id="ttt-widget"></div>
                         </div>
                         <div class="project-text">
-                            <p>A browser-based tic-tac-toe widget built from scratch with an unbeatable AI opponent and online multiplayer. Features four game modes, immutable state management, a Cloudflare Worker relay with KV persistence, and room-code matchmaking.</p>
-
-                            <h4>Features</h4>
-                            <ul>
-                                <li><strong>Unbeatable AI (Hard)</strong>: minimax algorithm explores the full game tree for perfect play; Easy mode picks moves at random</li>
-                                <li><strong>Online multiplayer</strong>: room-code matchmaking via Cloudflare Worker relay with Workers KV for cross-instance state sharing</li>
-                                <li><strong>Session persistence</strong>: sessionStorage-backed rejoin; refresh or change tabs without losing your game</li>
-                                <li><strong>Four game modes</strong>: vs AI (Easy), vs AI (Hard), local PvP, and online PvP</li>
-                                <li><strong>State-driven rendering</strong>: immutable game state with a single render path; DOM always reflects current state</li>
-                                <li><strong>Win line highlighting</strong>: winning triplet cells get a highlighted background for instant visual feedback</li>
-                            </ul>
-
-                            <h4>Architecture</h4>
-                            <pre>TTTEngine (pure logic, zero DOM)
-  ├─ createGame()    → fresh state object
-  ├─ makeMove()      → immutable move + win/draw detection
-  ├─ checkWin()      → scans 8 win lines against board
-  ├─ getBestMove()   → easy=random, hard=minimax (recursive tree search)
-  └─ minimax()       → +10 / -10 / 0 scoring, in-place mutate & undo
-
-TTTWidget (UI controller)
-  ├─ mount()         → bootstraps widget into DOM container
-  ├─ renderBoard()   → redraws 9 cells from current state
-  ├─ handleClick()   → validates, applies move, triggers AI or POST
-  ├─ updateStatus()  → turn indicator, win/draw messages
-  └─ pollRoom()      → 500ms polling for opponent moves in online mode
-
-Cloudflare Worker (multiplayer relay)
-  ├─ POST /room/create        → generates 4-char room code
-  ├─ POST /room/join/:code    → joins as O, supports X-Player-Mark rejoin
-  ├─ POST /room/:code/move    → validates turn, applies move server-side
-  ├─ GET  /room/:code         → polls current board state
-  └─ POST /room/:code/rematch → resets board, swaps X/O</pre>
+                            <details>
+                                <summary>How it works</summary>
+                                <ul>
+                                    <li><strong>Unbeatable AI (Hard)</strong>: minimax over the full game tree; Easy plays random</li>
+                                    <li><strong>Online multiplayer</strong>: room-code matchmaking via a Cloudflare Worker relay, Workers KV for cross-instance state</li>
+                                    <li><strong>Session persistence</strong>: sessionStorage-backed rejoin across refreshes</li>
+                                    <li><strong>State-driven rendering</strong>: immutable game state with a single render path</li>
+                                </ul>
+                            </details>
+                            <div class="project-links">
+                                <a href="https://github.com/PureChocolate/purechocolate.github.io" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                                    Source (site repo)</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- OCR TRANSLATE -->
-                <div class="project-card">
+                <article class="project-card" data-pillar="ai">
                     <div class="project-header">
-                        <h3>OCR Translate &mdash; AI Manga Translation Pipeline</h3>
-                        <div class="tech-pills">
-                            <span>Python 3.10+</span><span>Ollama</span><span>Qwen3-VL 8B</span><span>TranslateGemma 12B</span><span>Pillow</span>
-                        </div>
+                        <h3>OCR Translate — Local AI Manga Pipeline</h3>
+                        <span class="status lab">lab · live demo</span>
                     </div>
+                    <div class="project-meta">
+                        <span class="pillar">ai</span>
+                        <span class="sep">·</span>
+                        <span>Python + Ollama</span>
+                        <span class="sep">·</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="project-summary">A fully local two-stage AI pipeline: a vision model reads Japanese text from raw comic pages, a second model translates it to English. No cloud APIs, no manual preprocessing. The demo below runs on a home server through a Cloudflare tunnel, so it may be offline.</p>
 
                     <div class="project-body">
                         <div class="project-preview">
-                            <a href="./images/ocrTranslate.png" data-lightbox="projects" data-title="OCR Translate">
-                                <img src="./images/ocrTranslate.png" alt="OCR Translate output">
+                            <a href="./images/ocrTranslate.png" class="lightbox-link" data-caption="OCR Translate — output sample">
+                                <img src="./images/ocrTranslate.png" alt="OCR Translate output" loading="lazy">
                             </a>
                         </div>
                         <div class="project-text">
-                            <p>A fully local, two-stage AI pipeline that extracts Japanese text from raw comic/manga pages and translates it to natural English. Zero cloud APIs, zero Tesseract, zero manual preprocessing: raw images in, English dialogue out.</p>
-
-                            <h4>Architecture</h4>
-                            <pre>images/*.png
-  │  preprocess.py: load, downscale, base64-encode
-  ▼
-ocr.py ── POST /api/chat → Qwen3-VL (vision model)
-  │  Returns raw Japanese text from speech bubbles
-  ▼
-translate.py ── POST /api/chat → TranslateGemma (LLM)
-  │  Furigana stripping → contextual English translation
-  ▼
-outputs/batch_translation.txt</pre>
-
-                            <h4>Key Features</h4>
-                            <ul>
-                                <li><strong>Two-stage local AI</strong>: vision model reads the image, separate LLM translates; both run on-device via Ollama</li>
-                                <li><strong>Zero preprocessing</strong>: raw images go direct to the vision model; no grayscale conversion, thresholding, or denoising</li>
-                                <li><strong>Vertical text support</strong>: vision models natively understand right-to-left Japanese reading order</li>
-                                <li><strong>Crash-resilient batch mode</strong>: streaming per-page writes survive mid-batch failures; restart picks up from scratch with no duplicates</li>
-                                <li><strong>Furigana stripping</strong>: regex-based removal of kana reading annotations before translation to prevent tokenization noise</li>
-                                <li><strong>563 lines of Python</strong>: no framework overhead, single-file modules, trivially auditable</li>
-                            </ul>
-
+                            <details open>
+                                <summary>Try it live</summary>
+                                <div class="ocr-demo">
+                                    <h4>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="width:14px;height:14px"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 20h16"/></svg>
+                                        <span id="ocr-status" class="ocr-status checking">checking…</span>
+                                    </h4>
+                                    <form id="ocr-form" class="ocr-upload" onsubmit="return handleOCR(event)">
+                                        <input type="file" id="ocr-file" accept="image/*" required>
+                                        <button type="submit">Translate Image</button>
+                                    </form>
+                                    <form id="text-form" class="ocr-upload" onsubmit="return handleTextTranslate(event)">
+                                        <input type="text" id="text-input" placeholder="Paste Japanese text here…" required>
+                                        <button type="submit">Translate Text</button>
+                                    </form>
+                                    <div id="ocr-spinner" class="ocr-spinner hidden">Translating…</div>
+                                    <div id="ocr-result" class="ocr-result"></div>
+                                </div>
+                            </details>
+                            <details>
+                                <summary>How it works</summary>
+                                <ul>
+                                    <li><strong>Two-stage local AI</strong>: Qwen3-VL reads the image; TranslateGemma translates; both on-device via Ollama</li>
+                                    <li><strong>Zero preprocessing</strong>: raw images go straight to the vision model</li>
+                                    <li><strong>Crash-resilient batch mode</strong>: streaming per-page writes survive mid-batch failures</li>
+                                    <li><strong>Small footprint</strong>: 563 lines of Python, no framework overhead</li>
+                                </ul>
+                            </details>
                             <div class="project-links">
-                                <a href="https://github.com/PureChocolate/ocrTranslate" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-                            </div>
-
-                            <div class="ocr-demo">
-                                <h4><i class="fas fa-cloud-upload-alt"></i> Try It Live <span id="ocr-status" class="ocr-status checking">checking&hellip;</span></h4>
-                                <form id="ocr-form" class="ocr-upload" onsubmit="return handleOCR(event)">
-                                    <input type="file" id="ocr-file" accept="image/*" required>
-                                    <button type="submit">Translate Image</button>
-                                </form>
-                                <form id="text-form" class="ocr-upload" onsubmit="return handleTextTranslate(event)">
-                                    <input type="text" id="text-input" placeholder="Paste Japanese text here&hellip;" required>
-                                    <button type="submit">Translate Text</button>
-                                </form>
-                                <div id="ocr-spinner" class="ocr-spinner hidden">Translating&hellip;</div>
-                                <div id="ocr-result" class="ocr-result"></div>
+                                <a href="https://github.com/PureChocolate/ocrTranslate" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                                    View on GitHub</a>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- MOUSEFLOW -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>MouseFlow &mdash; System Telemetry Utility</h3>
-                        <div class="tech-pills">
-                            <span>Java 21</span><span>JNA 5.13</span><span>Win32 API</span><span>JavaFX</span><span>JNativeHook</span>
-                        </div>
-                    </div>
-
-                    <div class="project-body">
-                        <div class="project-preview">
-                            <a href="./images/mouseFlow.png" data-lightbox="projects" data-title="MouseFlow Tracker">
-                                <img src="./images/mouseFlow.png" alt="MouseFlow dashboard">
-                            </a>
-                        </div>
-                        <div class="project-text">
-                            <p>A global mouse tracker that hooks low-level Windows APIs to intercept cursor telemetry across all applications. Renders real-time trajectory paths on a live JavaFX dashboard and displays hovered application names. Designed for UX heatmaps and productivity analysis.</p>
-
-                            <h4>Architecture</h4>
-                            <pre>Windows OS
-  │  WH_MOUSE_LL hook (jnativehook)
-  ▼
-App.java ── Worker thread (40ms pulse)
-  │  ├─ Win32: GetForegroundWindow, WindowFromPoint (JNA)
-  │  ├─ Weighted-pulse CSV logging (5px deadzone + dwell time)
-  │  └─ Platform.runLater → UI updates
-  ▼
-TrackerUI.java ── JavaFX Application thread
-  │  ├─ Live X/Y, active/hovered window titles
-  │  ├─ Resizable path-trail canvas (multi-monitor normalized)
-  │  └─ Dark dashboard theme
-  ▼
-logs/mouse_log_&lt;ts&gt;.csv</pre>
-
-                            <h4>Key Features</h4>
-                            <ul>
-                                <li><strong>Weighted-pulse logging</strong>: writes CSV rows only on ≥5px movement or window change; accumulates dwell time during idle to minimize disk I/O</li>
-                                <li><strong>Multi-monitor normalization</strong>: computes virtual desktop bounds from all monitors, maps raw hook coords to canvas-relative percentages</li>
-                                <li><strong>Thread isolation</strong>: hook message pump on dedicated worker thread; all UI mutations marshaled via <code>Platform.runLater()</code></li>
-                                <li><strong>Resizable live canvas</strong>: path trail binds to window dimensions, auto-clears on resize</li>
-                            </ul>
-
-                            <h4>Debugging Highlights</h4>
-                            <ul>
-                                <li>Resolved path-trail boundary violations where rendered points drew outside the canvas viewport</li>
-                                <li>Fixed layout overflow in the stats panel causing clipped window titles at narrow widths</li>
-                                <li>Added zero-guards and size-change listeners to prevent null-pointer crashes during window resize</li>
-                            </ul>
-
-                            <div class="project-links">
-                                <a href="https://github.com/PureChocolate/mouseflow-tracker" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </article>
 
                 <!-- DEPLOYBOX -->
-                <div class="project-card">
+                <article class="project-card" data-pillar="data">
                     <div class="project-header">
-                        <h3>DeployBox &mdash; Single-Command Docker Runner</h3>
-                        <div class="tech-pills">
-                            <span>Go 1.23</span><span>Docker</span><span>YAML</span>
-                        </div>
+                        <h3>DeployBox — Single-Command Docker Runner</h3>
+                        <span class="status lab">lab · AI-assisted</span>
                     </div>
+                    <div class="project-meta">
+                        <span class="pillar">data</span>
+                        <span class="sep">·</span>
+                        <span>Go + Docker</span>
+                        <span class="sep">·</span>
+                        <span>2026</span>
+                    </div>
+                    <p class="project-summary">A small Go CLI that detects a project's stack and generates a production-style Dockerfile, then builds and runs it with one command. Built with heavy AI assistance as a workflow demo; useful as an example of containerized services, not as a hand-written systems build.</p>
 
                     <div class="project-body">
                         <div class="project-preview">
-                            <a href="./images/DeployBox.png" data-lightbox="projects" data-title="DeployBox">
-                                <img src="./images/DeployBox.png" alt="DeployBox CLI">
+                            <a href="./images/DeployBox.png" class="lightbox-link" data-caption="DeployBox — CLI output">
+                                <img src="./images/DeployBox.png" alt="DeployBox CLI output" loading="lazy">
                             </a>
                         </div>
                         <div class="project-text">
-                            <p>A lightweight Go CLI that auto-detects any project's stack and generates a production-ready Dockerfile, then builds and runs the container with one command. No Docker knowledge required.</p>
-
-                            <h4>Architecture</h4>
-                            <pre>deploybox init &lt;dir&gt;
-  │  Scan: pom.xml→Java, requirements.txt→Python, package.json→Node, ...
-  │  Load: deploy.yaml overrides (name, port, env, volumes, command)
-  │  Generate: multi-stage Dockerfile with layer caching
-  ▼
-Dockerfile
-
-deploybox up &lt;dir&gt;
-  │  docker build -t deploybox-&lt;name&gt;
-  │  docker run -d --rm (or docker compose up for depends_on)
-  ▼
-Container running ✓</pre>
-
-                            <h4>Key Features</h4>
-                            <ul>
-                                <li><strong>Auto-detection</strong>: scans directory for <code>pom.xml</code>, <code>requirements.txt</code>, <code>package.json</code>, <code>Cargo.toml</code>, or <code>go.mod</code> and picks the right base image</li>
-                                <li><strong>Multi-stage builds</strong>: every Dockerfile uses layer caching; dependencies installed before source so code changes skip full rebuilds</li>
-                                <li><strong>Optional deploy.yaml</strong>: override name, port, environment variables, volume mounts, and startup command without touching the Dockerfile</li>
-                                <li><strong>Multi-service support</strong>: <code>depends_on</code> in deploy.yaml generates docker-compose.yml to wire containers together</li>
-                                <li><strong><code>host.docker.internal</code></strong>: containers reach host services (Ollama, databases) through Docker Desktop's built-in DNS</li>
-                                <li><strong>Cross-project consistency</strong>: all generated Dockerfiles follow identical conventions; audit one, trust all</li>
-                            </ul>
-
-                            <h4>Verified Against</h4>
-                            <ul>
-                                <li><strong>OCR Translate</strong> (Python): built image, ran batch translation, connected to Windows Ollama via <code>host.docker.internal</code></li>
-                                <li><strong>MouseFlow Tracker</strong> (Java/Maven): built multi-stage image, resolved JNA + JavaFX + JNativeHook, compiled successfully</li>
-                            </ul>
-
+                            <details>
+                                <summary>What it does</summary>
+                                <ul>
+                                    <li><strong>Auto-detection</strong>: <code>pom.xml</code>, <code>requirements.txt</code>, <code>package.json</code>, <code>Cargo.toml</code>, <code>go.mod</code> → the right base image</li>
+                                    <li><strong>Multi-stage Dockerfiles</strong> with layer caching; dependencies installed before source</li>
+                                    <li><strong>Optional deploy.yaml</strong>: override name, port, env, volumes, and command</li>
+                                    <li><strong>Verified against</strong>: OCR Translate (Python) and MouseFlow (Java/Maven) builds</li>
+                                </ul>
+                            </details>
                             <div class="project-links">
-                                <a href="https://github.com/PureChocolate/deploybox" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                                <a href="https://github.com/PureChocolate/deploybox" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                                    View on GitHub</a>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                </div>
+                </article>
+            </div>
         </section>
 
-        <section id="experience">
+        <!-- ================= SKILLS ================= -->
+        <section id="skills" class="reveal">
+            <div class="section-content">
+                <h2>Skills</h2>
+                <p class="section-sub">what I use, and what I am learning next</p>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <p>Java, Python, C#, JavaScript, Go, SQL (MySQL, JDBC)</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Systems</h4>
+                        <p>Win32 / WASAPI, real-time audio DSP, Linux (WSL), Docker</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>AI &amp; Cloud</h4>
+                        <p>Local LLM/TTS inference (Ollama, GGUF, Vulkan), SSE streaming, Cloudflare Workers &amp; KV</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Testing &amp; QA</h4>
+                        <p>xUnit, GitHub Actions CI, WCAG 2.0/2.1 audits, defect reporting</p>
+                    </div>
+                </div>
+                <p class="skills-foot"><strong>Learning now:</strong> C++ and bare-metal embedded (RP2350). <strong>Background:</strong> accessibility QA internship, WCAG audits, one year of university coursework in data structures and algorithms.</p>
+            </div>
+        </section>
+
+        <!-- ================= EXPERIENCE ================= -->
+        <section id="experience" class="reveal">
             <div class="section-content">
                 <h2>Experience</h2>
+                <p class="section-sub">work history</p>
 
                 <div class="exp-card">
                     <div class="exp-header">
                         <div>
                             <h3>Wandke Consulting</h3>
-                            <p class="exp-role">Accessibility QA Consultant (Internship)</p>
+                            <p class="exp-role">Accessibility QA Consultant (University Internship)</p>
                         </div>
-                        <span class="exp-date">Jan &ndash; Mar 2023</span>
+                        <span class="exp-date">Jan – Mar 2023</span>
                     </div>
                     <ul>
-                        <li>Performed manual and automated WCAG 2.0/2.1 audits across multiple websites using AXE DevTools and browser DevTools, logging defects, delivering code-level remediation, and verifying fixes.</li>
-                        <li>Collaborated with development teams via shared documentation and feedback loops, gaining experience in real-world QA workflows.</li>
+                        <li>Performed manual and automated WCAG 2.0/2.1 audits across client platforms (browser DevTools, axe, Lighthouse), documenting 5–15 defects per page with reproduction steps and remediation guidance.</li>
+                        <li>Validated findings with assistive technologies (NVDA, JAWS, VoiceOver, ZoomText) and cross-browser reproduction; maintained detailed test logs.</li>
+                        <li>Delivered defect reports with recommended fixes to development; verified resolutions and reported outcomes.</li>
                     </ul>
                 </div>
 
@@ -434,11 +581,12 @@ Container running ✓</pre>
                             <h3>Fred Meyer (Kroger)</h3>
                             <p class="exp-role">Logistics Operations Specialist</p>
                         </div>
-                        <span class="exp-date">Nov 2019 &ndash; Present</span>
+                        <span class="exp-date">Nov 2019 – Present</span>
                     </div>
                     <ul>
-                        <li>Investigate and reconcile daily inventory discrepancies by cross-referencing physical stock with digital records, honing strong attention to detail and systematic troubleshooting habits.</li>
-                        <li>Operate inventory management software and Zebra RF hardware in a fast-paced environment, ensuring data accuracy across systems.</li>
+                        <li>Reconcile inventory data against physical counts, resolving 10–50 discrepancies per shift through cycle counts and systematic verification.</li>
+                        <li>Monitor temperature and equipment alerts (FAST) on cold storage, assessing and documenting whether affected product is kept or removed.</li>
+                        <li>Operate Zebra RF handhelds and internal inventory systems; train new teammates on core inventory workflows.</li>
                     </ul>
                 </div>
             </div>
@@ -448,20 +596,29 @@ Container running ✓</pre>
 
     <footer>
         <div class="section-content footer-content">
-            <p>&copy; 2026 Gurkirat Singh</p>
+            <p>&copy; 2026 Gurkirat Singh &middot; built by hand, no frameworks</p>
+            <div class="footer-links">
+                <a href="mailto:singh@gurkirat.net">Email</a>
+                <a href="https://github.com/PureChocolate" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/gurkirat-singh01" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
         </div>
     </footer>
 
-    <a href="#top" id="back-to-top" title="Top">
-        <i class="fas fa-arrow-up"></i>
+    <a href="#top" id="back-to-top" title="Back to top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </a>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+        <button class="lb-close" type="button" aria-label="Close">✕</button>
+        <img src="" alt="">
+        <div class="lb-caption"></div>
+    </dialog>
 
     <script src="js/config.js"></script>
     <script src="js/tictactoe-engine.js"></script>
     <script src="js/tictactoe-widget.js"></script>
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script>document.addEventListener('DOMContentLoaded', function() { TTTWidget.mount('ttt-widget'); });</script>
 </body>
 </html>
